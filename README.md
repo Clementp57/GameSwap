@@ -1,3 +1,3 @@
 # GameSwap
 
-Ecole Multimedia final project.
+Ecole Multimedia final project: Hybrid app.
