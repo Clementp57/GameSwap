@@ -8,6 +8,7 @@
     Clement Peyrabere
   </author>
   <content src="index.html"/>
+  <allow-navigation href="http://*/*"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

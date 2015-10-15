@@ -26,7 +26,7 @@ angular.module('GameSwap')
     }
 
     // public api
-    return {
+    return { 
       getEndpoint: function() { return endpoint; }
     };
 

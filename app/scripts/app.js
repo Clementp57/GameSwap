@@ -25,6 +25,9 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
   .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
     // register $http interceptors, if any. e.g.
     // $httpProvider.interceptors.push('interceptor-name');
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 
     // Application routing
     $stateProvider

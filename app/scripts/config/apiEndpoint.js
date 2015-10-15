@@ -15,8 +15,8 @@ angular.module('GameSwap')
   // development
   .constant('API_ENDPOINT', {
     host: 'http://localhost',
-    port: 3000,
-    path: '',
+    port: 5000,
+    path: '/api/v1',
     needsAuth: false
   });
 

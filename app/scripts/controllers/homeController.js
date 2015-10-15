@@ -7,21 +7,22 @@
  * # HomeController
  */
 angular.module('GameSwap')
-  .controller('HomeController', function($scope, ExampleService) {
+  .controller('HomeController', function($scope, ExampleService, UserService, $cordovaOauth) {
+    this.users = [];
 
-    $scope.myHTML = null;
 
-    // just an example...
-    $scope.fetchRandomText = function() {
-      ExampleService.doSomethingAsync()
-        .then(ExampleService.fetchSomethingFromServer)
-        .then(function(response) {
-            $scope.myHTML = response.data.text;
-            // close pull to refresh loader
-            $scope.$broadcast('scroll.refreshComplete');
-        });
-    };
+    $cordovaOauth.facebook("392617384261537", ["email"]).then(function(result) {
+    	console.log("Result => "+result);
+    }, function(error) {	
+        console.error('EPIC FAIL : ', error);
+    });
 
-    $scope.fetchRandomText();
 
+    this.getAllUsers = function() {
+      UserService.query().$promise.then(function(data) {
+        console.log(data);
+      });
+    }
+
+    this.getAllUsers();
   });
