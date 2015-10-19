@@ -7,7 +7,7 @@
  * # HomeController
  */
 angular.module('GameSwap')
-  .controller('HomeController', function($scope, ExampleService, UserService, $cordovaOauth) {
+  .controller('HomeController', function($scope, ExampleService, UserService, GameService, $cordovaOauth) {
     this.users = [];
 
 
@@ -17,6 +17,9 @@ angular.module('GameSwap')
         console.error('EPIC FAIL : ', error);
     });
 
+    GameService.doApiCall('games', 'field_list=genres,name', function(data) {
+        console.log(data);
+    });
 
     this.getAllUsers = function() {
       UserService.query().$promise.then(function(data) {
