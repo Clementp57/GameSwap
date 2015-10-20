@@ -7,7 +7,7 @@
  * # HomeController
  */
 angular.module('GameSwap')
-  .controller('HomeController', function($scope, ExampleService, UserService, $cordovaOauth) {
+  .controller('HomeController', function($scope, ExampleService, UserService, GameService, $cordovaOauth) {
     this.users = [];
 
     console.log($cordovaOauth);
@@ -27,8 +27,9 @@ angular.module('GameSwap')
     // };
 
     // $scope.googleLogin();
-
-
+    GameService.getAllGames().then(function(data) {
+        console.log('Got datas from api ! =>', data);
+    });
 
     this.getAllUsers = function() {
       UserService.query().$promise.then(function(data) {
