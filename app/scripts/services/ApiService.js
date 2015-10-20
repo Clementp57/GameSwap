@@ -19,6 +19,8 @@ angular.module('GameSwap')
 
     var _api = API_ENDPOINT;
     var endpoint = _api.port ? (_api.host + ':' + _api.port + _api.path) : (_api.host + _api.path);
+    var loginEndPoint = _api.port ? (_api.host + ':' + _api.port) : _api.host;
+    loginEndPoint += '/login';
 
     // activate for basic auth
     if (_api.needsAuth) {
@@ -27,7 +29,8 @@ angular.module('GameSwap')
 
     // public api
     return { 
-      getEndpoint: function() { return endpoint; }
+      getEndpoint: function() { return endpoint; },
+      getLoginEndPoint: function() { return loginEndPoint }
     };
 
   });

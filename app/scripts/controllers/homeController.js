@@ -7,15 +7,23 @@
  * # HomeController
  */
 angular.module('GameSwap')
-  .controller('HomeController', function($scope, ExampleService, UserService, GameService, $cordovaOauth) {
+  .controller('HomeController', function($scope, UserService, GameService, $window) {
     this.users = [];
 
-    console.log($cordovaOauth);
-    $cordovaOauth.facebook("392617384261537", ["email"], {redirect_uri: "http://localhost/callback"}).then(function(result) {
-    	console.log("Result => "+result);
-    }, function(error) {	
-        console.error('EPIC FAIL : ', error);
-    });
+    if($window.localStorage.accessToken) {
+        $location.path("/home"); //handle this in router
+    }
+
+    $scope.loginFacebook = function(){
+        $cordovaOauth.facebook("392617384261537", ["email"]).then(function(result) {
+                console.log("Result => ",result);
+                $localStorage.accessToken = result.access_token;
+            }, function(error) {    
+                console.error('EPIC FAIL : ', error);
+            });
+    };
+
+   
 
     // $scope.googleLogin = function() {
     //     console.log('tryin to log in to google');
@@ -27,15 +35,15 @@ angular.module('GameSwap')
     // };
 
     // $scope.googleLogin();
-    GameService.getAllGames().then(function(data) {
-        console.log('Got datas from api ! =>', data);
-    });
+    // GameService.getAllGames().then(function(data) {
+    //     console.log('Got datas from api ! =>', data);
+    // });
 
-    this.getAllUsers = function() {
-      UserService.query().$promise.then(function(data) {
-        console.log(data);
-      });
-    }
+    // this.getAllUsers = function() {
+    //   UserService.query().$promise.then(function(data) {
+    //     console.log(data);
+    //   });
+    // }
 
-    this.getAllUsers();
+    // this.getAllUsers();
   });

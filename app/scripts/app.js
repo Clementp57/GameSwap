@@ -37,6 +37,15 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         templateUrl: 'templates/main.html',
         controller: 'MainController'
       })
+      .state('app.login', {
+        url: '/login',
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/login.html',
+            controller: 'LoginController'
+          }
+        }
+      })
       .state('app.home', {
         url: '/home',
         cache: true,
@@ -60,7 +69,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
 
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app/home');
+    $urlRouterProvider.otherwise('/app/login');
   });
 
 
