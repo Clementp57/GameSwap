@@ -56,6 +56,16 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
             controller: 'SettingsController'
           }
         }
+      })
+    .state('app.ancmt', {
+        url: '/annoncements',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/ancmt.html',
+            controller: 'AncmtController'
+          }
+        }
       });
 
 

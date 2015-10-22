@@ -27,7 +27,7 @@ angular.module('GameSwap')
     // };
 
     // $scope.googleLogin();
-    GameService.getAllGames().then(function(data) {
+    GameService.getAllGames('games').then(function(data) {
         console.log('Got datas from api ! =>', data);
     });
 
