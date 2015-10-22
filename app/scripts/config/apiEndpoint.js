@@ -14,21 +14,17 @@ angular.module('GameSwap')
 
   // development
   .constant('API_ENDPOINT', {
-    host: 'https://localhost',
-    port: 55555,
+    host: 'http://localhost',
+    port: 5000,
     path: '/api/v1',
     needsAuth: false
   });
+  
+  // production
+  // .constant('API_ENDPOINT', {
+  //   host: 'http://emm-project3.herokuapp.com',
+  //   path: '/api/v1',
+  //   needsAuth: false
+  // });
 
-
-  // live example with HTTP Basic Auth
-  /*
-  .constant('API_ENDPOINT', {
-    host: 'http://yourserver.com',
-    path: '/api/v2',
-    needsAuth: true,
-    username: 'whatever',
-    password: 'foobar'
-  });
-  */
 
