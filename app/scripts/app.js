@@ -12,11 +12,20 @@
 
 angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
 
-  .run(function($ionicPlatform, $rootScope, $state) {
+  .run(function($ionicPlatform, $rootScope, $state, ServerService) {
 
     // Handle global events
     $rootScope.$on('unauthorized', function() {
-      $state.go('app.login');
+      $state.go('login');
+    });
+
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      if (toState.authenticate && !ServerService.isLogged()){
+        // User isn’t authenticated
+        console.info('Restricted route, redirecting to login');
+        $state.go("login");
+        event.preventDefault(); 
+      }
     });
 
 
@@ -24,9 +33,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
       // save to use plugins here
     });
 
-    // add possible global event handlers here
-
-  })
+  })  
 
   .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
     $httpProvider.defaults.useXDomain = true;
@@ -35,24 +42,21 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
     // Http Interceptors
     $httpProvider.interceptors.push('ApiInterceptor');  
 
-    
-
     // Application routing
     $stateProvider
       .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/main.html',
-        controller: 'MainController as ctrl'
+        controller: 'MainController as ctrl',
+        authenticate: true
       })
-      .state('app.login', {
+      .state('login', {
         url: '/login',
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/login.html',
-            controller: 'LoginController as ctrl'
-          }
-        }
+        abstract: false,
+        templateUrl: 'templates/views/login.html',
+        controller: 'LoginController as ctrl'
+        
       })
       .state('app.home', {
         url: '/home',
@@ -62,7 +66,8 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
             templateUrl: 'templates/views/home.html',
             controller: 'HomeController as ctrl'
           }
-        }
+        },
+        authenticate: true
       })
       .state('app.settings', {
         url: '/settings',
@@ -72,7 +77,8 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
             templateUrl: 'templates/views/settings.html',
             controller: 'SettingsController as ctrl'
           }
-        }
+        },
+        authenticate: true
       })
     .state('app.ancmt', {
         url: '/annoncements',
@@ -82,12 +88,13 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
             templateUrl: 'templates/views/ancmt.html',
             controller: 'AncmtController as ctrl'
           }
-        }
+        },
+        authenticate: true
       });
 
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app/login');
+    $urlRouterProvider.otherwise('/login');
   });
 
 

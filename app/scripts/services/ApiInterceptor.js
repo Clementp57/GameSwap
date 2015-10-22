@@ -5,14 +5,12 @@ angular.module('GameSwap').service('ApiInterceptor', function($rootScope, $windo
 
     service.request = function(config) { 
         if(config.url.indexOf('/api/v1') > -1) { // Call ApiService to get endpoint
-            console.log($window.localStorage);
             var server_token = $window.localStorage.server_token;
 
             if (server_token) {
                 config.headers['x-access-token'] = server_token;
             } 
         }
-        console.info('Request interceptor => URL: ',config.headers);
         return config;
     };
 
