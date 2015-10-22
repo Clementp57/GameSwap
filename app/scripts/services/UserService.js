@@ -14,6 +14,10 @@ angular.module('GameSwap')
     return $resource(usersEndpoint, { id: '@_id' }, {
       update: {
         method: 'PUT'
+      },
+      query: {
+      	method: 'GET', 
+      	isArray: true 
       }
     });
   });
