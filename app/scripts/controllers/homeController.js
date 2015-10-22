@@ -7,14 +7,14 @@
  * # HomeController
  */
 angular.module('GameSwap')
-  .controller('HomeController', function($scope, UserService, GameService, $window) {
-    this.users = [];
+  .controller('HomeController', function(UserService, GameService, $window) {
+
 
     if($window.localStorage.accessToken) {
         $location.path("/home"); //handle this in router
     }
 
-    $scope.loginFacebook = function(){
+    this.loginFacebook = function(){
         $cordovaOauth.facebook("392617384261537", ["email"]).then(function(result) {
                 console.log("Result => ",result);
                 $localStorage.accessToken = result.access_token;

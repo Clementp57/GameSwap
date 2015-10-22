@@ -8,7 +8,7 @@
  */
 angular.module('GameSwap')
   // use factory for services
-  .factory('LoginService', function($resource, ApiService, $http) {
+  .factory('ServerService', function($resource, ApiService, $http) {
     var loginEndPoint = ApiService.getLoginEndPoint();
 
     this.logUser = function(email) {
@@ -22,11 +22,16 @@ angular.module('GameSwap')
     	});
 
     	$http.post(loginEndPoint, data).success(function(response) {
-    		console.log(response);
+            $window.localStorage.server_token = result.token;
+            $window.localStorage.logged_user = JSON.stringify(result.user);
     	}).error(function(error) {
-    		console.log('failed to log user : ', error);
+    		console.error('failed to log user : ', error);
     	});
 
+    };
+
+    this.getLoggedUser = function() {
+        return JSON.parse($window.localStorage.logger_user);
     }
 
     return this;

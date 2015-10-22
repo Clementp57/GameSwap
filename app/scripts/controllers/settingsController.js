@@ -7,7 +7,7 @@
  * # SettingsController
  */
 angular.module('GameSwap')
-  .controller('SettingsController', function($scope) {
+  .controller('SettingsController', function() {
 
     // do something with $scope
 

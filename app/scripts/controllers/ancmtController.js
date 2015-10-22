@@ -7,7 +7,7 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function($scope, UserService, AncmtService, GameService) {
+  .controller('AncmtController', function(UserService, AncmtService, GameService) {
     this.users = [];
     this.game = [];
 

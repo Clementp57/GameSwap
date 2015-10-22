@@ -35,14 +35,14 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         url: '/app',
         abstract: true,
         templateUrl: 'templates/main.html',
-        controller: 'MainController'
+        controller: 'MainController as ctrl'
       })
       .state('app.login', {
         url: '/login',
         views: {
           'viewContent': {
             templateUrl: 'templates/views/login.html',
-            controller: 'LoginController'
+            controller: 'LoginController as ctrl'
           }
         }
       })
@@ -52,7 +52,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         views: {
           'viewContent': {
             templateUrl: 'templates/views/home.html',
-            controller: 'HomeController'
+            controller: 'HomeController as ctrl'
           }
         }
       })
@@ -62,7 +62,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         views: {
           'viewContent': {
             templateUrl: 'templates/views/settings.html',
-            controller: 'SettingsController'
+            controller: 'SettingsController as ctrl'
           }
         }
       })
@@ -72,7 +72,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         views: {
           'viewContent': {
             templateUrl: 'templates/views/ancmt.html',
-            controller: 'AncmtController'
+            controller: 'AncmtController as ctrl'
           }
         }
       });
