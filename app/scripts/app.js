@@ -85,8 +85,19 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/ancmt.html',
+            templateUrl: 'templates/views/ancmts.html',
             controller: 'AncmtController as ctrl'
+          }
+        },
+        authenticate: true
+      })
+    .state('app.event', {
+        url: '/events',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/events.html',
+            controller: 'EventController as ctrl'
           }
         },
         authenticate: true

@@ -7,7 +7,7 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function(UserService, AncmtService, GameService) {
+  .controller('AncmtController', function($scope, UserService, AncmtService, GameService) {
     this.users = [];
     this.game = [];
 
@@ -17,7 +17,7 @@ angular.module('GameSwap')
         console.log('Got datas from api ! =>', data);
     });*/
 
-    this.getAllAncmt = function() {
+    this.getAllAncmts = function() {
       //AncmtService.query().$promise.then(function(ancmt) {
        // console.log(ancmt);
           /* a supprimer */
@@ -28,5 +28,5 @@ angular.module('GameSwap')
       //});
     }
 
-    this.getAllAncmt();
+    this.getAllAncmts();
   });
