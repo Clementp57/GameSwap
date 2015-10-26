@@ -23,7 +23,7 @@ angular.module('GameSwap')
           /* a supprimer */
           var ancmt = [{title : "échange gta V", img : "http://i.huffpost.com/gen/1066633/images/o-GTA-5-facebook.jpg"},{title : "échange mgs", img : "http://i.jeuxactus.com/datas/jeux/m/e/metal-gear-solid-5-the-phantom-pain/xl/metal-gear-solid-5-the-54f71952e6bbd.jpg"}];
           /* */
-          $scope.ancmts = ancmt;
+          this.ancmts = ancmt;
 
       //});
     }

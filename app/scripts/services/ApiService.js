@@ -18,19 +18,19 @@ angular.module('GameSwap')
   .factory('ApiService', function($window, $http, API_ENDPOINT) {
 
     var _api = API_ENDPOINT;
-    var endpoint = _api.port ? (_api.host + ':' + _api.port + _api.path) : (_api.host + _api.path);
-    var loginEndPoint = _api.port ? (_api.host + ':' + _api.port) : _api.host;
-    loginEndPoint += '/login';
 
-    // activate for basic auth
-    if (_api.needsAuth) {
-      $http.defaults.headers.common.Authorization = 'Basic ' + $window.btoa(_api.username + ':' + _api.password);
-    }
+    var basePath = _api.port ? (_api.host + ':' + _api.port) : _api.host;
+    var apiBasePath = basePath + _api.path;
+    var loginEndPoint = basePath + '/public/login';
+    var checkTokenEndPoint = basePath + '/public/token/check';
+
 
     // public api
     return { 
-      getEndpoint: function() { return endpoint; },
-      getLoginEndPoint: function() { return loginEndPoint }
+      getEndpoint: function() { return apiBasePath; },
+      getLoginEndPoint: function() { return loginEndPoint },
+      getTokenCheckEndPoint: function() { return checkTokenEndPoint },
+      getBasePath: function() { return basePath; }
     };
 
   });

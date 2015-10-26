@@ -20,6 +20,15 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
     });
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      if(toState.url == '/login') {
+        event.preventDefault();
+        ServerService.initialize().then(function() {
+          $state.go('app.home');
+        }, function() {
+          $state.go('login')
+        });
+      }
+
       if (toState.authenticate && !ServerService.isLogged()){
         // User isn’t authenticated
         console.info('Restricted route, redirecting to login');
@@ -29,8 +38,9 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
     });
 
 
+
     $ionicPlatform.ready(function() {
-      // save to use plugins here
+      
     });
 
   })  
@@ -94,7 +104,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
 
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('app/home');
   });
 
 

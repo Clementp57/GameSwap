@@ -8,9 +8,9 @@
  */
 angular.module('GameSwap')
   .controller('HomeController', function(UserService, GameService, $window) {
-
     this.getAllUsers = function() {
       UserService.query().$promise.then(function(data) {
+        console.log(data);
       });
     }
 

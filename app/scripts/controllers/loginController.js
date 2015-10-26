@@ -8,6 +8,10 @@
  */
 angular.module('GameSwap')
   .controller('LoginController', function($cordovaOauth, $window, $http, ServerService, $location, $state) {
+    if(ServerService.isLogged()) {
+        $state.go('app.home');
+    }
+
     this.users = [];
 
     this.loginFacebook = function(){
