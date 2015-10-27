@@ -8,13 +8,14 @@
  */
 angular.module('GameSwap')
   .controller('EventController', function($scope, UserService, EventService, GameService) {
-    this.users = [];
-    this.game = [];
+    $scope.games = [];
+    $scope.game = [];
 
 
     // $scope.googleLogin();
-    /*GameService.getAllGames().then(function(data) {
-        console.log('Got datas from api ! =>', data);
+   /* GameService.getAllGames().then(function(obj) {
+        console.log('Got datas from api ! =>', obj.data.results);
+        $scope.games = obj.data.results;
     });*/
 
     this.getAllEvents = function() {
