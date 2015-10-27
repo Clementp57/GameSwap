@@ -12,7 +12,7 @@
 
 angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
 
-  .run(function($ionicPlatform, $rootScope, $state, ServerService) {
+  .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams) {
 
     // Handle global events
     $rootScope.$on('unauthorized', function() {
@@ -20,27 +20,26 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
     });
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-      if(toState.url == '/login') {
+      if (toState.authenticate && !ServerService.isLogged()){
         event.preventDefault();
-        ServerService.initialize().then(function() {
-          $state.go('app.home');
-        }, function() {
-          $state.go('login')
-        });
+        // User isn’t authenticated, we redirect him to login
+        $state.go("login");
       }
 
-      if (toState.authenticate && !ServerService.isLogged()){
-        // User isn’t authenticated
-        console.info('Restricted route, redirecting to login');
-        $state.go("login");
-        event.preventDefault(); 
+      if(toState.url == '/login') {
+        ServerService.initialize().then(function() {
+          // If ServerService initialized with success (nb: User already
+          // has a token and it is valid) we go directly to home page
+          $state.go('app.home');
+        }); // No catch there so that if ServerService did not find a token, we stay on login page
       }
+      
     });
 
 
 
     $ionicPlatform.ready(function() {
-      
+      // Plugin stuffs
     });
 
   })  
@@ -90,7 +89,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         },
         authenticate: true
       })
-    .state('app.ancmt', {
+    .state('app.ancmts', {
         url: '/annoncements',
         cache: true,
         views: {
@@ -101,13 +100,24 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
         },
         authenticate: true
       })
-    .state('app.event', {
+    .state('app.events', {
         url: '/events',
         cache: true,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/events.html',
             controller: 'EventController as ctrl'
+          }
+        },
+        authenticate: true
+      })
+    .state('app.createEvent', {
+        url: '/createEvent',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/createEvent.html',
+            controller: 'CreateEventController as ctrl'
           }
         },
         authenticate: true

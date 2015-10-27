@@ -9,12 +9,17 @@
 angular.module('GameSwap')
   // use factory for services
   .factory('ServerService', function($resource, ApiService, $http, $window, $q) {
+    var _initialized = false;
     var loginEndPoint = ApiService.getLoginEndPoint();
     var tokenCheckEndPoint = ApiService.getTokenCheckEndPoint();
     var isLogged = false; 
 
     this.initialize = function() {
         var deferred = $q.defer();
+
+        if(isLogged) {
+            deferred.resolve();
+        }
         if($window.localStorage.server_token) {
             this.checkTokenValidity().then(function(){
                 isLogged = true;
@@ -22,6 +27,8 @@ angular.module('GameSwap')
             }, function() {
                 deferred.reject();
             });   
+        } else {
+            deferred.reject();
         }
         return deferred.promise;
     };
