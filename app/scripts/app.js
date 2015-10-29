@@ -10,7 +10,7 @@
  */
 
 
-angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
+angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
 
   .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams) {
 
@@ -118,6 +118,17 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource'])
           'viewContent': {
             templateUrl: 'templates/views/createEvent.html',
             controller: 'CreateEventController as ctrl'
+          }
+        },
+        authenticate: true
+      })
+    .state('app.CreateAncmt', {
+        url: '/CreateAnoncement',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/createAncmt.html',
+            controller: 'CreateAncmtController as ctrl'
           }
         },
         authenticate: true

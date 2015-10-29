@@ -1,0 +1,21 @@
+<ion-view view-title="Annoncement Creation">
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">GameSwap</h1>
+    </ion-header-bar>
+
+    <ion-content>
+    <div class="list">
+    	<label class="item item-input">
+    		<input type="text" placeholder="title">
+    	</label>
+    	<label class="item item-input">
+            <input name="states" id="states" type="text" placeholder="enter a game" ng-model="selected" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control">
+    	</label>
+    	<label class="item item-input">
+    		<textarea placeholder="Description"></textarea>
+    	</label>
+    </div>
+    </ion-content>
+
+</ion-view>

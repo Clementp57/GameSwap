@@ -22,7 +22,7 @@ angular.module('GameSwap')
     };
     
     var getAllGames = function() {
-      return doApiCall('games','field_list=genres,name');
+      return doApiCall('games','field_list=id,name');
     };
 
     return {

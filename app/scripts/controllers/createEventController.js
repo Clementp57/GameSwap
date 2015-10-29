@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name GameSwap.controller:AncmtController
+ * @name GameSwap.controller:CreateEventController
  * @description
- * # AncmtController
+ * # CreateEventController
  */
 angular.module('GameSwap')
   .controller('CreateEventController', function($scope, UserService, AncmtService, GameService) {
