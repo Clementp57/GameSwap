@@ -8,22 +8,32 @@
 
     <meta name="format-detection" content="telephone=no">
 
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
     <!-- inject:app-styles:css --><!-- endinject -->
     <!-- uncomment if using your own iconfont -->
     <!-- <link rel="stylesheet" href="styles/own-icons.css"> -->
 </head>
 <body ng-app="GameSwap">
 
-<ion-nav-view></ion-nav-view>
+	<ion-nav-view></ion-nav-view>
 
-<!-- inject:vendor:js --><!-- endinject -->
-<!-- inject:app:js --><!-- endinject -->
+	<!-- inject:vendor:js --><!-- endinject -->
+	<!-- inject:app:js --><!-- endinject -->
 
 
-<script src="cordova.js"></script>
-<script src="cordova_plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+	<script src="cordova.js"></script>
+	<script src="cordova_plugins.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+
+	<!-- Mapbox -->
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA97tpKqY-ch7_OusAP4GRFzgFwi1rVRbk"></script>
+
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 
 
 </body>

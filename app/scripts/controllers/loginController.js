@@ -17,7 +17,7 @@ angular.module('GameSwap')
     this.loginFacebook = function(){
         $cordovaOauth.facebook("392617384261537", ["email", "user_friends"]).then(function(result) {
             $window.localStorage.accessToken = result.access_token;
-            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $window.localStorage.accessToken, fields: "email,friends", format: "json" }}).then(function(result) {
+            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $window.localStorage.accessToken, fields: "email,friends,picture", format: "json" }}).then(function(result) {
                 console.log(result.data);
                 ServerService.logUser(result.data.email);
                 $state.go('app/home'); 

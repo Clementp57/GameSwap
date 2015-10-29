@@ -10,11 +10,13 @@
     <!-- Left menu -->
     <ion-side-menu side="left" class="side-menu">
 
-        <ion-header-bar align-title="center" class="bar-positive">
-            <h1 class="title">Menu</h1>
-        </ion-header-bar>
+        <!-- <ion-header-bar align-title="center"> -->
+            <div class="item item-avatar" href="#">
+              <img src="{{ctrl.userPic}}">
+            </div>
+        <!-- </ion-header-bar> -->
 
-        <ion-content class="has-header">
+        <ion-content class="has-custom-header">
             <div class="list">
                 <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.home">
                     <i class="icon ion-ios-home-outline"></i>
@@ -23,7 +25,7 @@
                 <div class="section">
                     ECHANGE
                 </div>
-                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.ancmts">
+                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.createAncmt">
                     <i class="icon ion-ios-loop"></i>
                     Proposer un échange
                 </a>
