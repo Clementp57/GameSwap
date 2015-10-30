@@ -13,8 +13,8 @@ angular.module('GameSwap')
             link: function($scope, element, attrs) {
                 L.mapbox.accessToken = 'pk.eyJ1IjoibXhpbWUiLCJhIjoiNWQ1cDZUcyJ9.SbzQquPm3IbTZluO90hA6A';
                 var map = L.mapbox.map('map')
-                    .setView([48.855584, 2.354613], 11)
-                    .addLayer(L.mapbox.tileLayer('examples.h186knp8'));
+                    .setView([48.855584, 2.354613], 14)
+                    .addLayer(L.mapbox.tileLayer('mapbox.streets-satellite'));
             }
         }
     });

@@ -7,15 +7,14 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function($scope, UserService, AncmtService, GameService) {
+  .controller('AncmtController', function($scope, UserService, AncmtService, GameService, $q) {
     this.users = [];
     this.game = [];
+    this.ancmts = [];
 
-
-    // $scope.googleLogin();
-    /*GameService.getAllGames().then(function(data) {
-        console.log('Got datas from api ! =>', data);
-    });*/
+    AncmtService.query().$promise.then(function(data) {
+      console.log(data);
+    });
 
     this.getAllAncmts = function() {
       //AncmtService.query().$promise.then(function(ancmt) {

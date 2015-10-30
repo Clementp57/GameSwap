@@ -5,22 +5,22 @@
   </ion-header-bar>
 
 <ion-content>
-    <ion-list>
+    <div class="list">
 
-    	 <ion-item ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}">
-            
-            <div class="item item-thumbnail-left {{ancmt.plateform}}">
-                <img src="{{ctrl.ancmt.img}}" alt="{{ctrl.ancmt.title}}"/>
-                <h2>{{ancmt.title}}</h2>
-                <p class="plateform">Plateform : {{ancmt.plateform}}</p>
-                <p class="date">{{ancmt.date}}</p>
-                <p class="place">{{ancmt.position}}</p>
-                <span class="distance">à {{ancmt.position}}</span>
-            </div>
-            
-      	</ion-item >
-      	
-    </ion-list>
+      <a ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}" class="item item-thumbnail-left">
+        <img src="{{ctrl.ancmt.img}}" />
+        <h2>{{ancmt.title}}</h2>
+        <p class="plateform">Plateforme : {{ancmt.plateform}}</p>
+        <p class="date">{{ancmt.date}}</p>
+        <p class="place">{{ancmt.position}}</p>
+        <span class="distance">à {{ancmt.position}}</span>
+      </a>
+
+    </div>
+
+
+    	 
+ 
 </ion-content>
 
 </ion-view>
