@@ -7,8 +7,6 @@
  * # MainController
  */
 angular.module('GameSwap')
-  .controller('MainController', function() {
-
-    // do something with $scope
-
+  .controller('MainController', function($ionicHistory) {
+    this.userPic = "http://lorempixel.com/400/200/";
   });

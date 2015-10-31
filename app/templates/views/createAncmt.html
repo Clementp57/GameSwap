@@ -5,17 +5,33 @@
     </ion-header-bar>
 
     <ion-content>
-    <div class="list">
-    	<label class="item item-input">
-    		<input type="text" placeholder="title">
-    	</label>
-    	<label class="item item-input">
-            <input name="states" id="states" type="text" placeholder="Enter a game" ng-model="game.name" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-keyup="keyupevt(game.name)">
-    	</label>
-    	<label class="item item-input">
-    		<textarea placeholder="Description"></textarea>
-    	</label>
-    </div>
+
+        <div class="list">
+        	<label class="item item-input">
+        		<input type="text" placeholder="title" ng-model="ctrl.ancmt.title">
+        	</label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Plateforme
+                </div>
+                <select ng-model="ctrl.ancmt.platform">
+                    <option selected>Playstation 4</option>
+                    <option>Xbox one</option>
+                    <option>PC</option>
+                    <option>Wii U</option>
+                </select>
+            </label>
+        	<label class="item item-input">
+                <input name="states" id="states" type="text" placeholder="Enter a game" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game" ng-keyup="keyupevt(ctrl.ancmt.game)">
+        	</label>
+        	<label class="item item-input">
+        		<textarea placeholder="Description" ng-model="ctrl.ancmt.description"></textarea>
+        	</label>
+            <button class="button button-balanced" ng-click="ctrl.validateAncmt();">
+              Valider
+            </button>
+        </div>
+
     </ion-content>
 
 </ion-view>

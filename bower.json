@@ -9,7 +9,8 @@
     "angular-typeahead": "~0.2.4",
     "ionic": "~1.1.0",
     "lodash": "~3.10.0",
-    "ngCordova": "~0.1.17-alpha"
+    "ngCordova": "~0.1.17-alpha",
+    "angular-google-maps": "~2.2.1"
   },
   "resolutions": {
     "angular": "1.4.3"

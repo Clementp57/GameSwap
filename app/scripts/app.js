@@ -122,8 +122,8 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
         },
         authenticate: true
       })
-    .state('app.CreateAncmt', {
-        url: '/CreateAnoncement',
+    .state('app.createAncmt', {
+        url: '/createAnoncement',
         cache: true,
         views: {
           'viewContent': {
