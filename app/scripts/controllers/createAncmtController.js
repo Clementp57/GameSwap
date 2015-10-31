@@ -8,22 +8,23 @@
  */
 angular.module('GameSwap')
   .controller('CreateAncmtController', function($scope, UserService, AncmtService, GameService) {
-
-    GameService.getAllGames().then(function(obj) {
+    
+    $scope.keyupevt = function(gameName) {
+ 
+      GameService.getAllGames("field_list=id,name&limit=25&filter=name:"+gameName).then(function(obj) {
 
         var gamesList = [];
-        for(name in obj.data.results){
-            
-            gamesList.push(obj.data.results[name].name);
-            
+
+        for (name in obj.data.results) {
+
+          gamesList.push(obj.data.results[name].name);
+
         }
 
-        console.log(gamesList);
+        //console.log(gamesList);
         $scope.gamesList = gamesList;
-    });
-    $scope.selected = undefined;
-	
-   
+      });
 
+    };
+    
   });
-

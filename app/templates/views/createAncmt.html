@@ -10,7 +10,7 @@
     		<input type="text" placeholder="title">
     	</label>
     	<label class="item item-input">
-            <input name="states" id="states" type="text" placeholder="enter a game" ng-model="selected" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control">
+            <input name="states" id="states" type="text" placeholder="Enter a game" ng-model="game.name" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-keyup="keyupevt(game.name)">
     	</label>
     	<label class="item item-input">
     		<textarea placeholder="Description"></textarea>
