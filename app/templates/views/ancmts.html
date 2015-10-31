@@ -1,26 +1,27 @@
 <ion-view view-title="Annoncements around me" class="ancmt">
-  <ion-header-bar align-title="center" class="bar-positive">
-    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-    <h1 class="title">GameSwap</h1>
-  </ion-header-bar>
+<ion-header-bar align-title="center" class="bar-positive">
+<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+<h1 class="title">GameSwap</h1>
+</ion-header-bar>
 
 <ion-content>
-    <div class="list">
-
-      <a ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}" class="item item-thumbnail-left">
-        <img src="{{ctrl.ancmt.img}}" />
-        <h2>{{ancmt.title}}</h2>
-        <p class="plateform">Plateforme : {{ancmt.plateform}}</p>
-        <p class="date">{{ancmt.date}}</p>
-        <p class="place">{{ancmt.position}}</p>
-        <span class="distance">à {{ancmt.position}}</span>
-      </a>
-
-    </div>
+	<ion-refresher
+	pulling-text="Pull to refresh..."
+	on-refresh="ctrl.doRefresh()">
+	</ion-refresher>
+	<ion-list>
 
 
-    	 
- 
+		<a ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}" class="item item-thumbnail-left">
+			<img src="{{ctrl.ancmt.img}}" />
+			<h2>{{ancmt.title}}</h2>
+			<p class="plateform">Plateforme : {{ancmt.plateform}}</p>
+			<p class="date">{{ancmt.date}}</p>
+			<p class="place">{{ancmt.position}}</p>
+			<span class="distance">à {{ancmt.position}}</span>
+		</a>
+
+	</ion-list>
 </ion-content>
 
 </ion-view>

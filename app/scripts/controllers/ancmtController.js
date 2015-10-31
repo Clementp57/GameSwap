@@ -11,8 +11,17 @@ angular.module('GameSwap')
     var self= this;
     self.ancmts = [];
 
-    AncmtService.query().$promise.then(function(data) {
-      self.ancmts = data;
-    });
+   
+
+
+
+    this.doRefresh = function() {
+      AncmtService.query().$promise.then(function(data) {
+        self.ancmts = data;
+      });
+      $scope.$broadcast('scroll.refreshComplete');
+    };
+
+    this.doRefresh();
 
   });

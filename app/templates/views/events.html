@@ -6,8 +6,13 @@
 
 <ion-content>
    
-    <map teub="coucou"></map>
+    <map></map>
     <input game-autocomplete ui-items="games" ng-model="games" ng-change='alert("changed!")'>
+
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="ctrl.doRefresh()">
+    </ion-refresher>
     <ion-list>
 
         <a ng-repeat="event in events" href="#/app/activities/{{event.id}}" class="item item-thumbnail-left">
