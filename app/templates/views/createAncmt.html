@@ -5,6 +5,7 @@
     </ion-header-bar>
 
     <ion-content>
+
         <div class="list">
             <!-- TODO: use stacked label (better look) -->
             <!-- <label class="item item-input item-stacked-label">
@@ -26,7 +27,7 @@
                 </select>
             </label>
         	<label class="item item-input">
-                <input name="states" id="states" type="text" placeholder="enter a game" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game">
+                <input name="states" id="states" type="text" placeholder="Enter a game" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game" ng-keyup="keyupevt(ctrl.ancmt.game)">
         	</label>
         	<label class="item item-input">
         		<textarea placeholder="Description" ng-model="ctrl.ancmt.description"></textarea>
@@ -35,6 +36,7 @@
               Valider
             </button>
         </div>
+
     </ion-content>
 
 </ion-view>
