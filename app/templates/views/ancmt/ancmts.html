@@ -13,12 +13,14 @@
 
 
 		<a ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}" class="item item-thumbnail-left">
-			<img src="{{ctrl.ancmt.img}}" />
+			<img src="{{ancmt.img}}" />
+
 			<h2>{{ancmt.title}}</h2>
 			<p class="plateform">Plateforme : {{ancmt.plateform}}</p>
-			<p class="date">{{ancmt.date}}</p>
 			<p class="place">{{ancmt.position}}</p>
 			<span class="distance">à {{ancmt.position}}</span>
+			<!-- Formated date -->
+			<span am-time-ago="ancmt.date"></span> 
 		</a>
 
 	</ion-list>

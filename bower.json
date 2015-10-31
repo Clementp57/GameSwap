@@ -10,7 +10,8 @@
     "ionic": "~1.1.0",
     "lodash": "~3.10.0",
     "ngCordova": "~0.1.17-alpha",
-    "angular-google-maps": "~2.2.1"
+    "angular-google-maps": "~2.2.1",
+    "angular-moment": "~0.10.3"
   },
   "resolutions": {
     "angular": "1.4.3"

@@ -10,9 +10,12 @@
  */
 
 
-angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
+angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap', 'angularMoment'])
 
-  .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams) {
+  .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment) {
+
+    // Moment
+    amMoment.changeLocale('fr');
 
     // Handle global events
     $rootScope.$on('unauthorized', function() {
@@ -78,23 +81,12 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
         },
         authenticate: true
       })
-      .state('app.settings', {
-        url: '/settings',
-        cache: true,
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/settings.html',
-            controller: 'SettingsController as ctrl'
-          }
-        },
-        authenticate: true
-      })
     .state('app.ancmts', {
         url: '/annoncements',
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/ancmts.html',
+            templateUrl: 'templates/views/ancmt/ancmts.html',
             controller: 'AncmtController as ctrl'
           }
         },
@@ -105,7 +97,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/events.html',
+            templateUrl: 'templates/views/event/events.html',
             controller: 'EventController as ctrl'
           }
         },
@@ -116,7 +108,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/createEvent.html',
+            templateUrl: 'templates/views/event/createEvent.html',
             controller: 'CreateEventController as ctrl'
           }
         },
@@ -127,7 +119,7 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap'])
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/createAncmt.html',
+            templateUrl: 'templates/views/ancmt/createAncmt.html',
             controller: 'CreateAncmtController as ctrl'
           }
         },
