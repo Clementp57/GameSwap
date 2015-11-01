@@ -22,6 +22,7 @@ angular.module('GameSwap')
     var basePath = _api.port ? (_api.host + ':' + _api.port) : _api.host;
     var apiBasePath = basePath + _api.path;
     var loginEndPoint = basePath + '/public/login';
+    var registerEndPoint = basePath + '/public/register';
     var checkTokenEndPoint = basePath + '/public/token/check';
 
 
@@ -29,6 +30,7 @@ angular.module('GameSwap')
     return { 
       getEndpoint: function() { return apiBasePath; },
       getLoginEndPoint: function() { return loginEndPoint },
+      getRegisterEndPoint: function() { return registerEndPoint },
       getTokenCheckEndPoint: function() { return checkTokenEndPoint },
       getBasePath: function() { return basePath; }
     };

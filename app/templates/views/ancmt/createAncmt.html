@@ -27,7 +27,7 @@
                 </select>
             </label>
         	<label class="item item-input">
-                <input name="states" id="states" type="text" placeholder="Enter a game" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game" ng-keyup="keyupevt(ctrl.ancmt.game)">
+                <input name="states" id="states" type="text" placeholder="Enter a game" typeahead="game for game in ctrl.gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game" ng-keyup="ctrl.autocomplete(ctrl.ancmt.game)">
         	</label>
         	<label class="item item-input">
         		<textarea placeholder="Description" ng-model="ctrl.ancmt.description"></textarea>

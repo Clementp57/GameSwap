@@ -12,7 +12,7 @@ angular.module('GameSwap')
         $state.go('app.home');
     }
 
-    this.users = [];
+    this.newUser = {};
 
     this.loginFacebook = function(){
         $cordovaOauth.facebook("392617384261537", ["email", "user_friends"]).then(function(result) {
@@ -29,13 +29,25 @@ angular.module('GameSwap')
         }, function(error) {    
             alert('Cannot authenticate in web browser! Faking login');
             ServerService
-                .logUser("Didier")
+                .logUser("clementpeyrabere@gmail.com")
                     .then(function(){
                         $state.go('app.home');            
                     }).catch(function(error) {
-                        console.log('oops');
+                        console.error('oops', error);
                     });
             
         });
     };
+
+    this.register = function() {
+        if(this.user.name.first && this.user.name.last && this.user.email) {
+            ServerService
+                .registerUser(this.user)
+                    .then(function(){
+                        $state.go('app.home');
+                    }).catch(function(error) {
+                        console.error('oops', error);
+                    })
+        }
+    }
   });

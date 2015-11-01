@@ -11,6 +11,7 @@ angular.module('GameSwap')
   .factory('ServerService', function($resource, ApiService, $http, $window, $q) {
     var _initialized = false;
     var loginEndPoint = ApiService.getLoginEndPoint();
+    var registerEndPoint = ApiService.getRegisterEndPoint();
     var tokenCheckEndPoint = ApiService.getTokenCheckEndPoint();
     var isLogged = false; 
 
@@ -64,7 +65,7 @@ angular.module('GameSwap')
         var deferred = $q.defer();
 
     	var data = JSON.stringify({
-    		firstName : email 
+    		email : email 
     	});
 
     	$http.post(loginEndPoint, data).success(function(response) {
@@ -81,12 +82,36 @@ angular.module('GameSwap')
 
     };
 
+    this.registerUser = function(user) {
+        if(!user) {
+            throw 'No user specified';
+            return;
+        }
+
+        var deferred = $q.defer();
+
+        var data = JSON.stringify(user);
+
+        $http.post(registerEndPoint, data).success(function(response) {
+            console.log(response);
+            $window.localStorage.server_token = response.token;
+            $window.localStorage.logged_user = JSON.stringify(response.user);
+            isLogged = true; 
+            deferred.resolve();
+        }).error(function(error) {
+            console.error('failed to log user : ', error);
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
+
     this.isLogged = function() {
         return isLogged;
     };
 
     this.getLoggedUser = function() {
-        return JSON.parse($window.localStorage.logger_user);
+        return JSON.parse($window.localStorage.logged_user);
     };
 
     return this;

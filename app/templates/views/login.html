@@ -1,5 +1,5 @@
 <ion-view> 
- <ion-content>
+ <ion-content class="padding">
  		<!-- <ion-slide-box on-slide-changed="slideHasChanged($index)">
 		  <ion-slide>
 		    <div class="box blue"><h1>BLUE</h1></div>
@@ -12,8 +12,37 @@
 		  </ion-slide>
 		</ion-slide-box> -->
 
-        <button class="button icon-left ion-social-facebook-outline button-positive facebook-blue" ng-click="ctrl.loginFacebook()">
-			Facebook
+        <button class="button icon-left ion-social-facebook-outline button-outline button-positive button-block" ng-click="ctrl.loginFacebook()">
+			Se connecter avec Facebook
         </button>
+
+        <div class="row responsive-sm">
+		  <div class="col" style="text-align:center">OU</div>
+		</div>
+		
+		<div class="card">
+		  <div class="item item-divider">
+		    Créer un compte
+		  </div>
+		  <div class="item item-text-wrap">
+		    <div class="list">
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Prénom</span>
+			    <input type="text" placeholder="John" ng-model="ctrl.user.name.first">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Nom</span>
+			    <input type="text" placeholder="Smith" ng-model="ctrl.user.name.last">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Email</span>
+			    <input type="text" placeholder="johnsmith@gmail.com" ng-model="ctrl.user.email">
+			  </label>
+			  <button class="button button-block button-positive" ng-click="ctrl.register()">S'enregistrer</button>
+			</div>
+			</div>
+		  </div>
+		</div>
+
     </ion-content>
 </ion-view>

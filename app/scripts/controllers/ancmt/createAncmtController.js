@@ -7,15 +7,23 @@
  * # CreateAncmtController
  */
 angular.module('GameSwap')
-  .controller('CreateAncmtController', function($scope, UserService, AncmtService, GameService) {
+  .controller('CreateAncmtController', function($scope, UserService, AncmtService, GameService, ServerService) {
+    var self = this;
 
-    this.ancmt = {};
+    self.ancmt = {};
+    self.gamesList = [];
 
-    this.validateAncmt = function() {
+    UserService.query().$promise.then(function(data) {
+      console.log(data);
+    });
+
+    console.log(ServerService.getLoggedUser());
+
+    self.validateAncmt = function() {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
-      if (this.ancmt.title && this.ancmt.platform && this.ancmt.game && this.ancmt.description) {
-        this.ancmt.date = new Date();
-        AncmtService.save(this.ancmt).$promise.then(function() {
+      if (self.ancmt.title && self.ancmt.platform && self.ancmt.game && self.ancmt.description) {
+        self.ancmt.date = new Date();
+        AncmtService.save(self.ancmt).$promise.then(function() {
           console.log('TODO: redirect');
         }, function(error) {
           console.log('damned... there was an error :' + error);
@@ -25,20 +33,14 @@ angular.module('GameSwap')
     };
 
 
-    $scope.keyupevt = function(gameName) {
+    self.autocomplete = function(gameName) {
 
-      GameService.getAllGames("field_list=id,name&limit=25&filter=name:" + gameName).then(function(obj) {
-
-
-        var gamesList = [];
-
+      GameService.autocomplete(gameName.toLowerCase()).then(function(obj) {
+        var games = [];
         for (name in obj.data.results) {
-
-          gamesList.push(obj.data.results[name].name);
-
+          games.push(obj.data.results[name].name);
         }
-
-        $scope.gamesList = gamesList;
+        self.gamesList = games;
       });
 
     };

@@ -23,11 +23,16 @@ angular.module('GameSwap')
     };
     
     var getAllGames = function(options) {
-      return doApiCall('games',options);
+      return doApiCall('games', options);
     };
 
+    var autocomplete = function(name) {
+      return doApiCall('games', "field_list=id,name&limit=25&filter=name:" + name);
+    }
+
     return {
-      getAllGames : getAllGames
+      getAllGames : getAllGames,
+      autocomplete : autocomplete
     };
   }
 ]);
