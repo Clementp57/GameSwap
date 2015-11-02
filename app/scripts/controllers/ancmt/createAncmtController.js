@@ -23,7 +23,7 @@ angular.module('GameSwap')
 
     self.validateAncmt = function() {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
-      if (self.ancmt.title && self.ancmt.platform && self.ancmt.game && self.ancmt.description & self.ancmt.photo) {
+      if (self.ancmt.title && self.ancmt.platform && self.ancmt.game && self.ancmt.description & self.ancmt.img) {
         self.ancmt.date = new Date();
         AncmtService.save(self.ancmt).$promise.then(function() {
           console.log('TODO: redirect');
@@ -34,18 +34,18 @@ angular.module('GameSwap')
     };
 
 
-    var searchGame = function(gameName){
-        self.autocompleteDelay = setTimeout(function() {
-            GameService.autocomplete(gameName.toLowerCase()).then(function(obj) {
-              var games = [];
-              for (name in obj.data.results) {
-                games.push(obj.data.results[name].name);
-              }
-              self.gamesList = games;
-            });
-          }, 500);
+    var searchGame = function(gameName) {
+      self.autocompleteDelay = setTimeout(function() {
+        GameService.autocomplete(gameName.toLowerCase()).then(function(obj) {
+          var games = [];
+          for (name in obj.data.results) {
+            games.push(obj.data.results[name].name);
+          }
+          self.gamesList = games;
+        });
+      }, 500);
     }
-    
+
     self.autocomplete = function(gameName) {
 
       if (!gameName == "") {
@@ -59,6 +59,11 @@ angular.module('GameSwap')
       } else {
         self.gamesList = "";
       }
+    };
+
+    self.clickListAutocomplete = function(item) {
+      self.ancmt.game = item;
+      self.gamesList = "";
     };
 
     self.takePicture = function() {
