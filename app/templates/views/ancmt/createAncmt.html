@@ -20,18 +20,22 @@
                   Plateforme
                 </div>
                 <select ng-model="ctrl.ancmt.platform">
-                    <option selected>Playstation 4</option>
-                    <option>Xbox one</option>
-                    <option>PC</option>
-                    <option>Wii U</option>
+                    <option ng-repeat="platform in ctrl.platform">{{platform}}</option>
                 </select>
             </label>
         	<label class="item item-input">
-                <input name="states" id="states" type="text" placeholder="Enter a game" typeahead="game for game in ctrl.gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.ancmt.game" ng-keyup="ctrl.autocomplete(ctrl.ancmt.game)">
+                 <input type="search" placeholder="Search" ng-change="ctrl.autocomplete(ctrl.ancmt.game)" ng-model="ctrl.ancmt.game">
         	</label>
+        	<div class="list">
+                <li class="item" ng-repeat="game in ctrl.gamesList | limitTo: 5">{{game}}</li>
+            </div>
         	<label class="item item-input">
         		<textarea placeholder="Description" ng-model="ctrl.ancmt.description"></textarea>
         	</label>
+           <button class="button button-full button-assertive" ng-click="ctrl.takePicture();">
+              Prendre une photo de mon jeu
+            </button>
+            <img src="" id="imgGame" ng-model="ctrl.ancmt.photo"/>
             <button class="button button-balanced" ng-click="ctrl.validateAncmt();">
               Valider
             </button>

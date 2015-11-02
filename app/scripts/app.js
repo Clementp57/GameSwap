@@ -10,7 +10,7 @@
  */
 
 
-angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'ui.bootstrap', 'angularMoment', 'ionic-material'])
+angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'angularMoment', 'ionic-material'])
 
   .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment) {
 
