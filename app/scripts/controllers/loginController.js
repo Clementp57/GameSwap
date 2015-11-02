@@ -53,6 +53,47 @@ angular.module('GameSwap')
             });
         };
 
+        this.loginGoogle = function() {
+            $cordovaOauth.google("654202242617-0qtdpbgsfieom6j9a9tesjfuncj3g80p.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then(function(result) {
+                console.log(JSON.stringify(result));
+                $window.localStorage.accessToken = result.access_token; 
+                $http.get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+$window.localStorage.accessToken, {})
+                    .then(function(response){
+                        var user = response.data;
+                        ServerService.logUser(user.email).then(function() {
+                            $state.go('app.home');
+                        }, function(error){
+                            // User not yet created, registering
+                            var newUser = {
+                                name: {
+                                    first: user.given_name,
+                                    last: user.family_name
+                                },
+                                email: user.email,
+                                picture: user.picture
+                            };
+                            ServerService.registerUser(newUser).then(function() {
+                                $state.go('app.home');
+                            }).catch(function(error) {
+                                console.error('oops', error);
+                            });
+                        });
+
+                    }); 
+
+            }, function(error) {
+                alert('Cannot authenticate in web browser! Faking login');
+                ServerService
+                    .logUser("clementpeyrabere@gmail.com")
+                    .then(function() {
+                        $state.go('app.home');
+                    }).catch(function(error) {
+                        console.error('oops', error);
+                    });
+
+            });
+        };
+
         self.getFacebookUserInfos = function() {
             var deferred = $q.defer();
             $http.get("https://graph.facebook.com/v2.2/me", {
