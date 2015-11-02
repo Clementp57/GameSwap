@@ -72,7 +72,7 @@ angular.module('GameSwap')
             $window.localStorage.logged_user = JSON.stringify(response.user);
             isLogged = true; 
             deferred.resolve();
-    	}).error(function(error) {
+    	}).error(function(error){ 
     		console.error('failed to log user : ', error);
             deferred.reject();
     	});
@@ -103,7 +103,7 @@ angular.module('GameSwap')
             isLogged = true; 
             deferred.resolve();
         }).error(function(error) {
-            console.error('failed to log user : ', error);
+            console.error('failed to register user : ', error);
             deferred.reject();
         });
 

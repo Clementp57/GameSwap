@@ -16,10 +16,10 @@ angular.module('GameSwap').service('ApiInterceptor', function($rootScope, $windo
         return config;
     };
 
-    service.responseError = function(response) {
-        if (response.status === 401) {
-            $rootScope.$broadcast('unauthorized');
-        }
-        return response;
-    };
+    // service.responseError = function(response) {
+    //     if (response.status === 401) {
+    //         $rootScope.$broadcast('unauthorized');
+    //     }
+    //     return response;
+    // };
 })

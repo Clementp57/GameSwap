@@ -29,7 +29,7 @@ angular.module('GameSwap')
           console.log('TODO: redirect');
         }, function(error) {
           console.log('damned... there was an error :' + error);
-        })
+        });
       }
     };
 
