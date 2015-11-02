@@ -1,45 +1,67 @@
 <ion-view view-title="Event Creation">
-    <ion-header-bar align-title="center" class="bar-positive">
-    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-        <h1 class="title">GameSwap</h1>
-    </ion-header-bar>
+<ion-header-bar align-title="center" class="bar-positive">
+<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+<h1 class="title">GameSwap</h1>
+</ion-header-bar>
 
-    <ion-content>
+<ion-content>
+
+
+<div class="card">
+    <form name="eventForm" ng-submit="ctrl.validateEvent(eventForm.$valid)" novalidate>
         <div class="list">
-		
-			<!-- TODO : use stacked label (better look) -->
-			<!-- <label class="item item-input item-stacked-label">
-			    <span class="input-label">First Name</span>
-			    <input type="text" placeholder="John">
-			  </label> -->
-        	<label class="item item-input">
-        		<input type="text" placeholder="title" ng-model="ctrl.event.title">
-        	</label>
-        	<label class="item item-input">
-                <input name="states" id="states" type="text" placeholder="enter a game" typeahead="game for game in gamesList | filter:$viewValue | limitTo:8" class="form-control" ng-model="ctrl.event.game">
-        	</label>
+            <div class="item item-divider">
+            <h2>Créer un évenement</h2>
+            </div>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nom de l'évenement</span>
+                <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Jeu</span>
+                <input type="text" placeholder="Jeu" ng-model="ctrl.event.game" name="game" required>
+            </label>
             <label class="item item-input item-select">
                 <div class="input-label">
-                  Plateforme
+                    Plateforme
                 </div>
-                <select ng-model="ctrl.event.platform">
+                <select ng-model="ctrl.event.platform" name="plateform" ng-model="ctrl.event.plateform"  required>
                     <option selected>Playstation 4</option>
                     <option>Xbox one</option>
                     <option>PC</option>
                     <option>Wii U</option>
                 </select>
             </label>
-        	<label class="item item-input">
-        		<textarea placeholder="Description" ng-model="ctrl.event.description"></textarea>
-        	</label>
-        	<label class="item item-input">
-        		<input type="text" placeholder="adresse" ng-model="ctrl.event.title">
-        	</label>
-
-            <button class="button button-balanced" ng-click="ctrl.validateAncmt();">
-              Valider
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Description</span>
+                <textarea placeholder="Description" ng-model="ctrl.event.description" name="description" required></textarea>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Lieu</span>
+                <input type="text" placeholder="Adresse" ng-model="ctrl.event.locationName" name="location" required>
+            </label>
+            <button class="button icon-left ion-ios-navigate-outline button-positive" ng-click="ctrl.locate()">
+                Me localiser
             </button>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Details</span>
+                <textarea placeholder="Details" ng-model="ctrl.event.details" name="details"></textarea>
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nombre de participants</span>
+                <input type="number" placeholder="Nombre de participants" ng-model="ctrl.event.participantNb" name="participantNb" required>
+            </label>
+
+            <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
+                Valider
+            </button>
+
         </div>
-    </ion-content>
+    </form>
+</div>
+
+</ion-content>
 
 </ion-view>

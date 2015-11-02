@@ -7,27 +7,12 @@
  * # EventController
  */
 angular.module('GameSwap')
-  .controller('EventController', function($scope, UserService, EventService, GameService) {
-    $scope.games = [];
-    $scope.game = [];
+  .controller('EventController', function(EventService) {
+    var self = this;
+    self.event = [];
 
 
-    // $scope.googleLogin();
-   /* GameService.getAllGames().then(function(obj) {
-        console.log('Got datas from api ! =>', obj.data.results);
-        $scope.games = obj.data.results;
-    });*/
-
-    this.getAllEvents = function() {
-      //EventService.query().$promise.then(function(event) {
-       // console.log(ancmt);
-          /* a supprimer */
-          var event = [{title : "Moi et mes coupains", img : "https://c2.staticflickr.com/4/3115/2873854099_89af11dbe1.jpg"},{title : "On s'enjaille ?", img : "http://www.brain-magazine.fr/images/stories/PAGE_PUTE_6/GEEK/dorkathon-5-lan-party-11.jpg"}];
-          /* */
-          $scope.events = event;
-
-      //});
-    }
-
-    this.getAllEvents();
+    EventService.query().$promise.then(function(data) {
+      self.events = data;
+    });
   });
