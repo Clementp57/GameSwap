@@ -92,6 +92,16 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'angularMoment',
         },
         authenticate: true
       })
+    .state('app.ancmt', {
+        url: "/annoncement/:id",
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/ancmt/ancmtDetail.html',
+            controller: 'AncmtDetailController as ctrl'
+          }
+        }
+    })
     .state('app.events', {
         url: '/events',
         cache: true,

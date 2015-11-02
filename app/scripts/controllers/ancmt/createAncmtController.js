@@ -21,8 +21,6 @@ angular.module('GameSwap')
       console.log(data);
     });
 
-    console.log(ServerService.getLoggedUser());
-
     self.validateAncmt = function() {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
       if (self.ancmt.title && self.ancmt.platform && self.ancmt.game && self.ancmt.description & self.ancmt.photo) {
@@ -33,8 +31,8 @@ angular.module('GameSwap')
           console.log('damned... there was an error :' + error);
         })
       }
-
     };
+
 
     var searchGame = function(gameName){
         self.autocompleteDelay = setTimeout(function() {
@@ -56,6 +54,7 @@ angular.module('GameSwap')
           searchGame(gameName);
         } else {
           searchGame(gameName);
+
         }
       } else {
         self.gamesList = "";
@@ -76,6 +75,7 @@ angular.module('GameSwap')
       function onFail(message) {
         alert('Failed because: ' + message);
       }
+
     };
 
   });

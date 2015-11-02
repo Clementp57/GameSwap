@@ -9,11 +9,13 @@
 angular.module('GameSwap')
   // use factory for services
   .factory('AncmtService', function($resource, ApiService) {
-    var usersEndpoint = ApiService.getEndpoint()  + '/annoncements';
+    var usersEndpoint = ApiService.getEndpoint()  + '/annoncements/:id';
 
-    return $resource(usersEndpoint, { id: '@_id' }, {
+    return $resource(usersEndpoint, {
       get: {
-        method: 'GET'
+        method: 'GET',
+        params: {id : 'id'},
+        isArray: true
       }
     });
   });
