@@ -11,7 +11,7 @@ angular.module('GameSwap')
   .factory('UserService', function($resource, ApiService) {
     var usersEndpoint = ApiService.getEndpoint()  + '/users/:id';
 
-    return $resource(usersEndpoint, { id: '@_id' }, {
+    return $resource(usersEndpoint, {
       update: {
         method: 'PUT'
       },

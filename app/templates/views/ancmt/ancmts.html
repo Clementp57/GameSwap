@@ -10,18 +10,30 @@
 	on-refresh="ctrl.doRefresh()">
 	</ion-refresher>
 	<ion-list>
-
-
-		<a ng-repeat="ancmt in ctrl.ancmts" href="#/app/activities/{{ctrl.ancmt.id}}" class="item item-thumbnail-left">
-			<img src="{{ancmt.img}}" />
-
-			<h2>{{ancmt.title}}</h2>
-			<p class="plateform">Plateforme : {{ancmt.plateform}}</p>
-			<p class="place">{{ancmt.position}}</p>
-			<span class="distance">à {{ancmt.position}}</span>
-			<!-- Formated date -->
-			<span am-time-ago="ancmt.date"></span> 
-		</a>
+	
+		<div class="card" ng-repeat="ancmt in ctrl.ancmts">
+		  <div class="item item-divider">
+		    <h2>{{ancmt.title}}</h2>
+		  </div>
+		  <div class="item item-text-wrap">
+		    {{ ancmt.description }}
+		  </div>
+		  <div class="item tabs tabs-secondary tabs-icon-left">
+		    <a class="tab-item">
+		      <i class="icon ion-ios-clock-outline"></i>
+		       <span am-time-ago="ancmt.date"></span> 
+		    </a>
+		    <a class="tab-item" href="#">
+		     	<i class="icon ion-thumbsup"></i>
+	       		{{ ancmt.like || 0 }}
+		       	Likes
+		    </a>
+		    <a class="tab-item" ui-sref="app.ancmt({id: '{{ancmt.id}}' })">
+		      <i class="icon ion-eye"></i>
+		      Voir
+		    </a>
+  			</div>
+		</div>
 
 	</ion-list>
 </ion-content>
