@@ -13,18 +13,18 @@
 angular.module('GameSwap')
 
   // development
-  .constant('API_ENDPOINT', {
-    host: 'http://localhost', //localhost
-    port: 5000, //5000
-    path: '/api/v1',
-    needsAuth: false
-  });
-  
-  // production
   // .constant('API_ENDPOINT', {
-  //   host: 'http://emm-project3.herokuapp.com',
+  //   host: 'http://localhost', //localhost
+  //   port: 5000, //5000
   //   path: '/api/v1',
   //   needsAuth: false
   // });
+  
+  // production
+  .constant('API_ENDPOINT', {
+    host: 'http://emm-project3.herokuapp.com',
+    path: '/api/v1',
+    needsAuth: false
+  });
 
 

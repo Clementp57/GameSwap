@@ -11,9 +11,13 @@
     "lodash": "~3.10.0",
     "ngCordova": "~0.1.17-alpha",
     "angular-google-maps": "~2.2.1",
-    "angular-moment": "~0.10.3"
+    "angular-moment": "~0.10.3",
+    "ionic-material": "~0.4.2"
   },
   "resolutions": {
-    "angular": "1.4.3"
+    "angular": "~1.4.3",
+    "ionic": "~1.1.0",
+    "angular-animate": "1.4.3",
+    "angular-sanitize": "1.4.3"
   }
 }

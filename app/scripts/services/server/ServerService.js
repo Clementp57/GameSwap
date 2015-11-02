@@ -17,7 +17,6 @@ angular.module('GameSwap')
 
     this.initialize = function() {
         var deferred = $q.defer();
-
         if(isLogged) {
             deferred.resolve();
         }
@@ -81,6 +80,11 @@ angular.module('GameSwap')
         return deferred.promise;
 
     };
+
+    this.logOut = function() {
+        $window.localStorage.clear();
+        isLogged = false;
+    }
 
     this.registerUser = function(user) {
         if(!user) {

@@ -22,7 +22,7 @@
                     <i class="icon ion-ios-home-outline"></i>
                     Accueil
                 </a>
-                <div class="section">
+                <div class="item item-divider">
                     ECHANGE
                 </div>
                 <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.createAncmt">
@@ -41,7 +41,7 @@
                     <i class="icon ion-ios-flag-outline"></i>
                     Annonces suivies
                 </a>
-                <div class="section">
+                <div class="item item-divider">
                     EVENEMENTS
                 </div>
                 <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.events">
@@ -52,10 +52,10 @@
                     <i class="icon ion-ios-world-outline"></i>
                     Créer un évenement
                 </a>
-                <div class="section">
+                <div class="item item-divider">
                     MON COMPTE
                 </div>
-                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="login">
+                <a menu-close class="item item-icon-left" ui-sref-active="active" ng-click="ctrl.logOut()">
                     <i class="icon ion-power"></i>
                     Déconnexion
                 </a>

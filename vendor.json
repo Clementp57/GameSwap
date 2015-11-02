@@ -5,5 +5,6 @@
     "bower_components/ngCordova/dist/ng-cordova.js",
     "bower_components/moment/moment.js",
     "bower_components/moment/locale/fr.js",
-    "bower_components/angular-moment/angular-moment.min.js"
+    "bower_components/angular-moment/angular-moment.min.js",
+    "bower_components/ionic-material/ionic.material.min.js"
 ]

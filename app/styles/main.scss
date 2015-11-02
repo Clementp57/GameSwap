@@ -27,12 +27,8 @@
 @import "views/home";
 @import "views/map";
 
-.section {
-	background-color: #EEEEEE;
-	padding: 10px;
-	font-size: 1.3em;
-}
+@import "ionic-material";
 
 .has-custom-header {
-	top: 70px;
+	top: 80px;
 } 
