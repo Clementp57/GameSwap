@@ -117,6 +117,29 @@ angular.module('GameSwap')
     this.getLoggedUser = function() {
         return JSON.parse($window.localStorage.logged_user);
     };
+    
+    this.registerFavorisAnnoncement = function(id) {
+        if(!id) {
+            throw 'No user specified';
+            return;
+        }
+        
+        if($window.localStorage.favoris_annoncement){
+            var tblFavoris = $window.localStorage.favoris_annoncement.split(',');
+            for (var i = 0, l = tblFavoris.length; i < l; ++i) {
+                if(tblFavoris[i] == id) {return;}
+            }
+            tblFavoris.push(id);
+            $window.localStorage.favoris_annoncement = tblFavoris;
+        }else{    
+            $window.localStorage.favoris_annoncement = id;
+        }
+
+    };
+    
+    this.getFavorisAnnoncement = function() {
+        return JSON.stringify($window.localStorage.favoris_annoncement);
+    };
 
     return this;
   });
