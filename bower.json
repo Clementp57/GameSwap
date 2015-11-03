@@ -15,8 +15,7 @@
     "angular-google-maps": "~2.2.1",
     "angular-moment": "~0.10.3",
     "ionic-datepicker": "~0.9.0",
-    "ionic-timepicker": "~0.4.0",
-    "ion-google-place": "~0.0.1"
+    "ionic-timepicker": "~0.4.0"
   },
   "resolutions": {
     "angular": "~1.4.3",

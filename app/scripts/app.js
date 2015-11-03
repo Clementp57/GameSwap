@@ -14,8 +14,7 @@ angular.module('GameSwap', ['ionic',
   'ngCordova',
   'ngResource',
   'angularMoment',
-  'ionic-datepicker',
-  'ion-google-place'
+  'ionic-datepicker'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment) {

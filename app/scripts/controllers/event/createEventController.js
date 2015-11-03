@@ -25,6 +25,7 @@ angular.module('GameSwap')
             };
     		GeolocationService.getAddressFromPosition(position).then(function(adress) {
                 self.event.locationName = adress;
+                // TODO INSERT IN INPUT
     		});
     	});
     };
