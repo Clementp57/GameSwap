@@ -7,10 +7,20 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function($scope, UserService, AncmtService, GameService, $q) {
+  .controller('AncmtController', function($scope, ServerService, UserService, AncmtService, GameService, $q) {
     var self= this;
     self.ancmts = [];
 
+    this.setFavorisAnnconcement = function(id){
+        if(ServerService.getFavorisAnnoncement()){
+            var tblFavoris = ServerService.getFavorisAnnoncement().split(',');
+            for(var i = 0, l = tblFavoris.length; i < l; ++i){
+                if(tblFavoris[i] == id) return;
+            }  
+        }
+        ServerService.registerFavorisAnnoncement(id);
+    };
+    
     this.doRefresh = function() {
       AncmtService.query().$promise.then(function(data) {
         self.ancmts = data;

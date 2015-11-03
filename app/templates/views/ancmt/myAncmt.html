@@ -1,33 +1,32 @@
-<ion-view view-title="Annoncements around me" class="ancmt">
+<ion-view view-title="Favoris Annoncements" class="ancmt">
   <ion-header-bar align-title="center" class="bar-positive">
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
     <h1 class="title">GameSwap</h1>
   </ion-header-bar>
 
   <ion-content>
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="ctrl.doRefresh()">
-    </ion-refresher>
+    
     <ion-list>
 
-      <div class="card" ng-repeat="ancmt in ctrl.ancmts">
+      <div class="card" ng-repeat="myAncmt in ctrl.myAncmts">
         <div class="item item-thumbnail-left">
-          <img src="{{ancmt.img}}">
+          <img src="{{myAncmt.img}}">
           <div class="item item-divider">
-            <h2>{{ancmt.title}}</h2>
+            <h2>{{myAncmt.title}}</h2>
           </div>
           <div class="item item-text-wrap">
-            {{ ancmt.description }}
+            {{ myAncmt.description }}
           </div>
           <div class="item tabs tabs-secondary tabs-icon-left">
             <a class="tab-item">
               <i class="icon ion-ios-clock-outline"></i>
-              <span am-time-ago="ancmt.date"></span>
+              <span am-time-ago="myAncmt.date"></span>
             </a>
-            <a class="tab-item" href="#" ng-click="ctrl.setFavorisAnnconcement('{{ancmt.id}}')">
+            <a class="tab-item" href="#">
               <i class="icon ion-star"></i>
               Favoris
             </a>
-            <a class="tab-item" ui-sref="app.ancmt({id: '{{ancmt.id}}' })">
+            <a class="tab-item" ui-sref="app.myAncmt({id: '{{myAncmt.id}}' })">
               <i class="icon ion-eye"></i>
               Voir
             </a>

@@ -134,6 +134,17 @@ angular.module('GameSwap', ['ionic', 'ngCordova', 'ngResource', 'angularMoment',
           }
         },
         authenticate: true
+      })
+    .state('app.favAncmts', {
+        url: '/favorisAnnoncement',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/ancmt/myAncmt.html',
+            controller: 'MyAncmtController as ctrl'
+          }
+        },
+        authenticate: true
       });
 
 
