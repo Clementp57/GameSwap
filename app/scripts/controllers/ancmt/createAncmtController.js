@@ -21,14 +21,15 @@ angular.module('GameSwap')
       console.log(data);
     });
 
-    self.validateAncmt = function() {
+    self.validateAncmt = function(isValid) {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
-      if (self.ancmt.title && self.ancmt.platform && self.ancmt.game && self.ancmt.description & self.ancmt.img) {
+      if (isValid) {
         self.ancmt.date = new Date();
+          console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function() {
           console.log('TODO: redirect');
         }, function(error) {
-          console.log('damned... there was an error :' + error);
+          console.log('damned... there was an error :', error);
         });
       }
     };
@@ -70,7 +71,9 @@ angular.module('GameSwap')
     self.takePicture = function() {
       navigator.camera.getPicture(onSuccess, onFail, {
         quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL
+        destinationType: Camera.DestinationType.DATA_URL,
+        correctOrientation: true,
+        targetWidth: 150
       });
 
       function onSuccess(imageData) {
