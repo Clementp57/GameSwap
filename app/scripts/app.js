@@ -131,33 +131,27 @@ angular.module('GameSwap', ['ionic',
       authenticate: true
     })
     .state('app.createAncmt', {
-        url: '/createAnoncement',
-        cache: true,
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/ancmt/createAncmt.html',
-            controller: 'CreateAncmtController as ctrl'
-          }
-        },
-        authenticate: true
-      })
+      url: '/createAnoncement',
+      cache: true,
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/ancmt/createAncmt.html',
+          controller: 'CreateAncmtController as ctrl'
+        }
+      },
+      authenticate: true
+    })
     .state('app.favAncmts', {
-        url: '/favorisAnnoncement',
-        cache: true,
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/ancmt/myAncmt.html',
-            controller: 'MyAncmtController as ctrl'
-          }
-        },
-        authenticate: true
-      });
-
-
-    // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('app/home');
-  });
-
+      url: '/favorisAnnoncement',
+      cache: true,
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/ancmt/myAncmt.html',
+          controller: 'MyAncmtController as ctrl'
+        }
+      },
+      authenticate: true
+    });
 
   // redirects to default route for undefined routes
   $urlRouterProvider.otherwise('app/home');
