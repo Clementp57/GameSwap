@@ -95,7 +95,7 @@ angular.module('GameSwap')
         var deferred = $q.defer();
 
         var data = JSON.stringify(user);
-
+        console.log("Registering User =>",user);
         $http.post(registerEndPoint, data).success(function(response) {
             console.log(response);
             $window.localStorage.server_token = response.token;

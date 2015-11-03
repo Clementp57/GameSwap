@@ -72,6 +72,7 @@ angular.module('GameSwap')
                                 email: user.email,
                                 picture: user.picture
                             };
+                            console.log("NEW USER =>",newUser);
                             ServerService.registerUser(newUser).then(function() {
                                 $state.go('app.home');
                             }).catch(function(error) {

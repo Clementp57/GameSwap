@@ -10,27 +10,40 @@
     on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
-    
-        <div class="card" ng-repeat="event in ctrl.events">
-          <div class="item item-divider">
-            <h2>{{event.title}}</h2>
-          </div>
-          <div class="item item-text-wrap">
-            {{ event.description }}
-          </div>
-          <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#">
-                <i class="icon ion-thumbsup"></i>
-                {{ ancmt.like || 0 }}
-                Likes
-            </a>
-            <a class="tab-item" ui-sref="app.ancmt({id: '{{ancmt.id}}' })">
-              <i class="icon ion-eye"></i>
-              Voir
-            </a>
-            </div>
+      <div class="list card" ng-repeat="event in ctrl.events"> 
+        <div class="item item-avatar">
+          <img src="{{event.userPic}}">
+          <h2>{{event.title}}</h2>
+          <p>{{ event.date | amDateFormat:'DD.MM.YYYY' }} (<span am-time-ago="event.date"></span>)</p>
         </div>
 
+        <div class="item item-body">
+          <img class="full-image" src="{{event.poster}}">
+          <strong>{{event.game}} / {{event.plateform}}</strong>
+          <p>
+            {{event.description}}
+          </p>
+          <p>
+            <a href="#" class="subdued">1 Like</a>
+            <a href="#" class="subdued">5 Comments</a>
+          </p>
+        </div>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i>
+            Like
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            Comment
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
+        </div>
+      </div>
     </ion-list>
 </ion-content>
 

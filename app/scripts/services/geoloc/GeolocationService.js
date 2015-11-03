@@ -53,8 +53,8 @@ angular.module('GameSwap')
 							if (res) {
 								var position = {
 									coords: {
-										longitude: res.geometry.location.D,
-										latitude: res.geometry.location.k
+										longitude: res.geometry.location.lat(),
+										latitude: res.geometry.location.lng()
 									}
 								};
 								deferred.resolve(position);

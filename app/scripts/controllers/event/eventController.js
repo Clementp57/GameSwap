@@ -9,10 +9,9 @@
 angular.module('GameSwap')
   .controller('EventController', function(EventService) {
     var self = this;
-    self.event = [];
+    self.events = [];
 
-
-    EventService.query().$promise.then(function(data) {
-      self.events = data;
+    EventService.query().$promise.then(function(events) {
+      	self.events = events;
     });
   });

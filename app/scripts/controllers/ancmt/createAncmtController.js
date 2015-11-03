@@ -55,7 +55,6 @@ angular.module('GameSwap')
           searchGame(gameName);
         } else {
           searchGame(gameName);
-
         }
       } else {
         clearTimeout(self.autocompleteDelay);

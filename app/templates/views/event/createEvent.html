@@ -12,13 +12,20 @@
         <div class="list">
             <div class="item item-divider">
             <h2>Créer un évenement</h2>
+                <button class="button button-small button-energized" ng-click="ctrl.getPictureFromGallery()">
+                  Ajouter une image
+                </button>
             </div>
+            <img id="eventPoster" alt="">
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Nom de l'évenement</span>
                 <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
             </label>
             <ionic-datepicker input-obj="ctrl.datePicker">
-                <button class="button button-block button-positive"> {{(ctrl.event.date | amDateFormat:'dddd Do MMMM  YYYY') || "Choisissez une date"}}</button>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date</span>
+                    <input type="text" placeholder="Date" name="date" ng-model="ctrl.eventPrettyDate" required>
+                </label>
             </ionic-datepicker>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Jeu</span>
@@ -41,7 +48,7 @@
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Lieu</span>
-                <ion-google-place id="locationName" placeholder="Adresse, Code Postal..." ng-model="ctrl.event.locationName" name="location" required />
+                <ion-google-place id="locationName" placeholder="Adresse, Code Postal..." ng-model="ctrl.event.locationName" name="location" ng-change="ctrl.locationChanged()" required />
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Details</span>

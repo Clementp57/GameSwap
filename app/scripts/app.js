@@ -88,7 +88,6 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.ancmts', {
       url: '/annoncements',
-      cache: true,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/ancmts.html',
@@ -99,7 +98,6 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.ancmt', {
       url: "/annoncement/:id",
-      cache: true,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/ancmtDetail.html',
@@ -109,7 +107,6 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.events', {
       url: '/events',
-      cache: true,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/event/events.html',
@@ -142,7 +139,6 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.favAncmts', {
       url: '/favorisAnnoncement',
-      cache: true,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/myAncmt.html',

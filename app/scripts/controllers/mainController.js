@@ -7,8 +7,9 @@
  * # MainController
  */
 angular.module('GameSwap')
-  .controller('MainController', function($ionicHistory, ServerService, $state, $timeout) {
-    this.userPic = ServerService.getLoggedUser().picture;
+  .controller('MainController', function($ionicHistory, ServerService, $state, $timeout, $rootScope) {
+    $rootScope.userPic = ServerService.getLoggedUser().picture;
+    $rootScope.userName =  ServerService.getLoggedUser().name.first;
 
     this.logOut = function() {
     	ServerService.logOut();
