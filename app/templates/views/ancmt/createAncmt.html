@@ -7,11 +7,6 @@
     <ion-content>
         <form name="anoncementForm" ng-submit="ctrl.validateAncmt(anoncementForm.$valid)" novalidate>
             <div class="list">
-                <!-- TODO: use stacked label (better look) -->
-                <!-- <label class="item item-input item-stacked-label">
-                    <span class="input-label">First Name</span>
-                    <input type="text" placeholder="John">
-                  </label> -->
                 <label class="item item-input">
                     <input type="text" placeholder="title" ng-model="ctrl.ancmt.title" required>
                 </label>
