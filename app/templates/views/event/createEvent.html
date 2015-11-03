@@ -17,6 +17,9 @@
                 <span class="input-label">Nom de l'évenement</span>
                 <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
             </label>
+            <ionic-datepicker input-obj="datepickerObject">
+              <button class="button button-block button-positive"> {{ctrl.datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+            </ionic-datepicker>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Jeu</span>
                 <input type="text" placeholder="Jeu" ng-model="ctrl.event.game" name="game" required>

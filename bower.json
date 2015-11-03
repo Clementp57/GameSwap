@@ -2,7 +2,9 @@
   "name": "GameSwap",
   "author": "Clement Peyrabere <clementpeyrabere@me.co>",
   "private": "true",
-  "devDependencies": {},
+  "devDependencies": {
+    "ionic-platform-web-client": "~0.2.1"
+  },
   "dependencies": {
     "angular": "~1.4.3",
     "angular-resource": "~1.4.3",
@@ -12,7 +14,8 @@
     "ngCordova": "~0.1.17-alpha",
     "angular-google-maps": "~2.2.1",
     "angular-moment": "~0.10.3",
-    "ionic-material": "~0.4.2"
+    "ionic-material": "~0.4.2",
+    "ionic-datepicker": "~0.9.0"
   },
   "resolutions": {
     "angular": "~1.4.3",

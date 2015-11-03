@@ -53,7 +53,10 @@
       "locator": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
       "id": "cordova-plugin-inappbrowser"
     },
+<<<<<<< HEAD
     "cordova-plugin-camera",
+=======
+>>>>>>> 0cbf60db7299fb896174a737c1d4a558c57b2a67
     "cordova-plugin-geolocation"
   ],
   "cordovaPlatforms": [
