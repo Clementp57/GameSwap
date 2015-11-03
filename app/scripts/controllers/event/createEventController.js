@@ -36,6 +36,13 @@ angular.module('GameSwap')
             });
         }
     };
+
+    self.datepickerObject = {
+        titleLabel: 'teub',
+        callback: function (val) {    
+           console.log(val);
+        }
+    };
     
 
   });
