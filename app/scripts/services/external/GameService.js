@@ -27,7 +27,7 @@ angular.module('GameSwap')
     };
 
     var autocomplete = function(name) {
-      return doApiCall('games', "field_list=id,name,image&limit=25&filter=name:" + name);
+      return doApiCall('games', "field_list=name&limit=25&sort=name:desc&filter=name:" + name);
     }
 
     return {

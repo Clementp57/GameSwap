@@ -57,6 +57,7 @@ angular.module('GameSwap')
 
         }
       } else {
+        clearTimeout(self.autocompleteDelay);
         self.gamesList = "";
       }
     };
@@ -75,6 +76,7 @@ angular.module('GameSwap')
       function onSuccess(imageData) {
         var image = document.getElementById('imgGame');
         image.src = "data:image/jpeg;base64," + imageData;
+        self.ancmt.img =  image.src;
       }
 
       function onFail(message) {
