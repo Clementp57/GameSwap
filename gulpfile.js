@@ -281,7 +281,6 @@ gulp.task('select', plugins.shell.task([
 
 // ripple emulator
 gulp.task('ripple', ['scripts', 'styles', 'watchers'], function() {
-
   var options = {
     keepAlive: false,
     open: true,

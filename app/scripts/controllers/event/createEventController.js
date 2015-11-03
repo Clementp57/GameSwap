@@ -27,7 +27,6 @@ angular.module('GameSwap')
     self.validateEvent = function(isValid) {
         if(isValid) {
             //register
-            console.log(self.event);
             delete self.event.locationName;
             EventService.save(self.event).$promise.then(function() {
               console.log('TODO: redirect');
@@ -36,13 +35,4 @@ angular.module('GameSwap')
             });
         }
     };
-
-    self.datepickerObject = {
-        titleLabel: 'teub',
-        callback: function (val) {    
-           console.log(val);
-        }
-    };
-    
-
   });
