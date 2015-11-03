@@ -45,8 +45,16 @@
     <preference name="xwalkVersion" value="14+" />
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
+<<<<<<< HEAD
+    <plugin name="cordova-plugin-camera" spec="~1.2.0" />
+    <plugin name="cordova-plugin-geolocation" spec="~1.0.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.0.1" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="~2.1.0" />
+=======
     <plugin name="cordova-plugin-geolocation" spec="~1.0.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
     <plugin name="org.apache.cordova.splashscreen" spec="~1.0.0" />
+>>>>>>> 0cbf60db7299fb896174a737c1d4a558c57b2a67
 </widget>

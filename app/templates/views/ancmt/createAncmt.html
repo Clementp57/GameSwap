@@ -1,45 +1,46 @@
-zz<ion-view view-title="Annoncement Creation">
+<ion-view view-title="Annoncement Creation">
     <ion-header-bar align-title="center" class="bar-positive">
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
         <h1 class="title">GameSwap</h1>
     </ion-header-bar>
 
     <ion-content>
-
-        <div class="list">
-            <!-- TODO: use stacked label (better look) -->
-            <!-- <label class="item item-input item-stacked-label">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="John">
-              </label> -->
-        	<label class="item item-input">
-        		<input type="text" placeholder="title" ng-model="ctrl.ancmt.title">
-        	</label>
-            <label class="item item-input item-select">
-                <div class="input-label">
-                  Plateforme
+        <form name="anoncementForm" ng-submit="ctrl.validateAncmt(anoncementForm.$valid)" novalidate>
+            <div class="list">
+                <!-- TODO: use stacked label (better look) -->
+                <!-- <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="John">
+                  </label> -->
+                <label class="item item-input">
+                    <input type="text" placeholder="title" ng-model="ctrl.ancmt.title" required>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                      Plateforme
+                    </div>
+                    <select ng-model="ctrl.ancmt.platform" required>
+                        <option ng-repeat="platform in ctrl.platform">{{platform}}</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                     <input type="search" placeholder="Search" ng-change="ctrl.autocomplete(ctrl.ancmt.game)" ng-model="ctrl.ancmt.game" required>
+                </label>
+                <div class="list">
+                    <li class="item" ng-click="ctrl.clickListAutocomplete(game)" ng-repeat="game in ctrl.gamesList | limitTo: 5">{{game}}</li>
                 </div>
-                <select ng-model="ctrl.ancmt.platform">
-                    <option ng-repeat="platform in ctrl.platform">{{platform}}</option>
-                </select>
-            </label>
-        	<label class="item item-input">
-                 <input type="search" placeholder="Search" ng-change="ctrl.autocomplete(ctrl.ancmt.game)" ng-model="ctrl.ancmt.game">
-        	</label>
-        	<div class="list">
-                <li class="item" ng-click="ctrl.clickListAutocomplete(game)" ng-repeat="game in ctrl.gamesList | limitTo: 5">{{game}}</li>
+                <label class="item item-input">
+                    <textarea placeholder="Description" ng-model="ctrl.ancmt.description" required></textarea>
+                </label>
+               <button class="button button-full button-assertive" ng-click="ctrl.takePicture();">
+                  Prendre une photo de mon jeu
+                </button>
+                <img class="full-image" src="http://lorempixel.com/300/300/sports/" id="imgGame" ng-model="ctrl.ancmt.img"/>
+                <button class="button button-balanced" type="submit" ng-disabled="anoncementForm.$invalid">
+                  Valider
+                </button>
             </div>
-        	<label class="item item-input">
-        		<textarea placeholder="Description" ng-model="ctrl.ancmt.description"></textarea>
-        	</label>
-           <button class="button button-full button-assertive" ng-click="ctrl.takePicture();">
-              Prendre une photo de mon jeu
-            </button>
-            <img class="full-image" src="http://lorempixel.com/300/300/sports/" id="imgGame" ng-change="ctrl.ancmt.img = "/>
-            <button class="button button-balanced" ng-click="ctrl.validateAncmt();">
-              Valider
-            </button>
-        </div>
+        </form>
 
     </ion-content>
 
