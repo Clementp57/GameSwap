@@ -50,5 +50,4 @@
     <plugin name="cordova-plugin-inappbrowser" spec="~1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="~2.1.0" />
-
 </widget>

@@ -7,10 +7,15 @@
  * # CreateEventController
  */
 angular.module('GameSwap')
-  .controller('CreateEventController', function(GeolocationService, EventService, ServerService) {
+  .controller('CreateEventController', function(GeolocationService, EventService, ServerService, DatepickerService) {
     var self = this;
     self.event = { coords : {}, details: ''};
     self.event.creatorId = ServerService.getLoggedUser()._id;
+
+    self.datePicker = DatepickerService.getDateConfigurationObject();
+    self.datePicker.callback = function(val) {
+        self.event.date = val;
+    };  
 
     self.locate = function() {
     	GeolocationService.getCurrentPosition().then(function(position) {
@@ -27,7 +32,6 @@ angular.module('GameSwap')
     self.validateEvent = function(isValid) {
         if(isValid) {
             //register
-            console.log(self.event);
             delete self.event.locationName;
             EventService.save(self.event).$promise.then(function() {
               console.log('TODO: redirect');
@@ -36,13 +40,4 @@ angular.module('GameSwap')
             });
         }
     };
-
-    self.datepickerObject = {
-        titleLabel: 'teub',
-        callback: function (val) {    
-           console.log(val);
-        }
-    };
-    
-
   });

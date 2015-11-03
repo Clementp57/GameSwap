@@ -17,8 +17,8 @@
                 <span class="input-label">Nom de l'évenement</span>
                 <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
             </label>
-            <ionic-datepicker input-obj="datepickerObject">
-              <button class="button button-block button-positive"> {{ctrl.datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+            <ionic-datepicker input-obj="ctrl.datePicker">
+                <button class="button button-block button-positive"> {{(ctrl.event.date | amDateFormat:'dddd Do MMMM  YYYY') || "Choisissez une date"}}</button>
             </ionic-datepicker>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Jeu</span>
@@ -60,6 +60,7 @@
             <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
                 Valider
             </button>
+            <ion-google-place placeholder="Enter an address, Apt# and ZIP" ng-model="ctrl.event.locationName" />
 
         </div>
     </form>
