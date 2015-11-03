@@ -88,8 +88,8 @@ angular.module('GameSwap')
 					},
 					function(results, status) {
 						if (status == google.maps.GeocoderStatus.OK) {
-							if (results[1]) {
-								deferred.resolve(results[1].formatted_address);
+							if (results[0]) {
+								deferred.resolve(results[0].formatted_address);
 							}
 						} else {
 							deferred.reject();

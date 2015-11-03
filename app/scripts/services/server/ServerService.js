@@ -84,7 +84,7 @@ angular.module('GameSwap')
     this.logOut = function() {
         $window.localStorage.clear();
         isLogged = false;
-    }
+    };
 
     this.registerUser = function(user) {
         if(!user) {
