@@ -24,10 +24,12 @@ angular.module('GameSwap')
     self.validateAncmt = function(isValid) {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
       if (isValid) {
-        ServerService.registerMyAnnoncement(self.ancmt.id);
+        
         self.ancmt.date = new Date();
           console.log(self.ancmt);
-        AncmtService.save(self.ancmt).$promise.then(function() {
+        AncmtService.save(self.ancmt).$promise.then(function(data) {
+          console.log(data);
+          //ServerService.registerMyAnnoncement(data.id);
           console.log('TODO: redirect');
         }, function(error) {
           console.log('damned... there was an error :', error);
