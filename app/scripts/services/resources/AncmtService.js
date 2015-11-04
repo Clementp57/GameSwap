@@ -16,6 +16,11 @@ angular.module('GameSwap')
         method: 'GET',
         params: {id : 'id'},
         isArray: true
+      },
+     delete: {
+        method: 'DELETE',
+        params: {id : 'id'},
+        isArray: true
       }
     });
   });

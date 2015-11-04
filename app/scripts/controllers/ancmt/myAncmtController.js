@@ -21,5 +21,12 @@ angular.module('GameSwap')
         // Maybe we can handle this in one request (eg : getAllAncmt for an userId)
       }
     }
+    
+    this.deleteAnnoncement = function (id){
+        AncmtService.delete({'id': id }).$promise.then(function(data) {
+          console.log(data);
+        });
+        ServerService.removeFromMyAnnoncement(id);
+    };
 
   });

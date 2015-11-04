@@ -22,13 +22,9 @@
               <i class="icon ion-ios-clock-outline"></i>
               <span am-time-ago="myAncmt.date"></span>
             </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-star"></i>
-              Favoris
-            </a>
-            <a class="tab-item" ui-sref="app.myAncmt({id: '{{myAncmt.id}}' })">
-              <i class="icon ion-eye"></i>
-              Voir
+            <a class="tab-item" href="#" ng-click="ctrl.deleteAnnoncement('{{myAncmt.id}}')">
+              <i class="icon ion-trash-a"></i>
+              Supprimer
             </a>
           </div>
         </div>
