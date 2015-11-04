@@ -137,12 +137,22 @@ angular.module('GameSwap', ['ionic',
       },
       authenticate: true
     })
-    .state('app.favAncmts', {
-      url: '/favorisAnnoncement',
+    .state('app.myAncmts', {
+      url: '/myAnnoncement',
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/myAncmt.html',
           controller: 'MyAncmtController as ctrl'
+        }
+      },
+      authenticate: true
+    })
+  .state('app.favAncmts', {
+      url: '/favorisAnnoncement',
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/ancmt/favorisAncmt.html',
+          controller: 'FavorisAncmtController as ctrl'
         }
       },
       authenticate: true

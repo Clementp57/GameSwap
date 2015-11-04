@@ -117,7 +117,7 @@ angular.module('GameSwap')
     this.getLoggedUser = function() {
         return JSON.parse($window.localStorage.logged_user);
     };
-    
+    // FAVORIS ANNONCEMENT
     this.registerFavorisAnnoncement = function(id) {
         if(!id) {
             throw 'No user specified';
@@ -139,6 +139,26 @@ angular.module('GameSwap')
     
     this.getFavorisAnnoncement = function() {
         return $window.localStorage.favoris_annoncement;
+    };
+    //MES ANNONCES
+    this.registerMyAnnoncement = function(id) {
+        if(!id) {
+            throw 'No user specified';
+            return;
+        }
+        
+        if($window.localStorage.my_annoncement){
+            var tblMyAncmt = $window.localStorage.my_annoncement.split(',');
+            tblMyAncmt.push(id);
+            $window.localStorage.my_annoncement = tblMyAncmt;
+        }else{    
+            $window.localStorage.my_annoncement = id;
+        }
+
+    };
+    
+    this.getMyAnnoncement = function() {
+        return $window.localStorage.my_annoncement;
     };
 
     return this;

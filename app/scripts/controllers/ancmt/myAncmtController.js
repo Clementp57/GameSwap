@@ -11,13 +11,12 @@ angular.module('GameSwap')
     var self = this;
     self.myAncmts = [];
 
-    if (ServerService.getFavorisAnnoncement()) {
+    if (ServerService.getMyAnnoncement()) {
         
-      var tblFavoris = ServerService.getFavorisAnnoncement().split(',');
+      var tblMyAncmt = ServerService.getMyAnnoncement().split(',');
         
-      for (var i = 0, l = tblFavoris.length; i < l; ++i) {
-          console.log("'"+tblFavoris[i]+"'");
-        AncmtService.get({'id': tblFavoris[i]}).$promise.then(function(data) {
+      for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
+        AncmtService.get({'id': tblMyAncmt[i]}).$promise.then(function(data) {
           self.myAncmts.push(data);
         });
         // Maybe we can handle this in one request (eg : getAllAncmt for an userId)
