@@ -23,7 +23,7 @@
               <i class="icon ion-ios-clock-outline"></i>
               <span am-time-ago="ancmt.date"></span>
             </a>
-            <a class="tab-item" href="#" ng-click="ctrl.setFavorisAnnconcement('{{ancmt.id}}')">
+            <a class="tab-item" ng-class="ctrl.checkIfFavoris('{{ancmt.id}}') ? 'fav': ''" href="#" ng-click="ctrl.setFavorisAnnoncement('{{ancmt.id}}')">
               <i class="icon ion-star"></i>
               Favoris
             </a>

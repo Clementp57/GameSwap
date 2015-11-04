@@ -11,14 +11,24 @@ angular.module('GameSwap')
     var self= this;
     self.ancmts = [];
 
-    this.setFavorisAnnconcement = function(id){
-        if(ServerService.getFavorisAnnoncement()){
-            var tblFavoris = ServerService.getFavorisAnnoncement().split(',');
-            for(var i = 0, l = tblFavoris.length; i < l; ++i){
-                if(tblFavoris[i] == id) return;
+    self.tblFavoris = ServerService.getFavorisAnnoncement().split(',');
+    
+    this.setFavorisAnnoncement = function(id){
+        if(self.tblFavoris){
+            for(var i = 0, l = self.tblFavoris.length; i < l; ++i){
+                if(self.tblFavoris[i] == id) return;
             }  
         }
         ServerService.registerFavorisAnnoncement(id);
+    };
+    
+    this.checkIfFavoris = function(id){
+        if(self.tblFavoris){
+            for(var i = 0, l = self.tblFavoris.length; i < l; ++i){
+                if(self.tblFavoris[i] == id) return true;
+            }  
+        }
+        return;
     };
     
     this.doRefresh = function() {
