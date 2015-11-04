@@ -14,7 +14,6 @@ angular.module('GameSwap')
     if (ServerService.getMyAnnoncement()) {
         
       var tblMyAncmt = ServerService.getMyAnnoncement().split(',');
-        
       for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
         AncmtService.get({'id': tblMyAncmt[i]}).$promise.then(function(data) {
           self.myAncmts.push(data);
