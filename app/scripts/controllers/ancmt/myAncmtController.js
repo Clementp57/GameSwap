@@ -14,8 +14,9 @@ angular.module('GameSwap')
     if (ServerService.getFavorisAnnoncement()) {
         
       var tblFavoris = ServerService.getFavorisAnnoncement().split(',');
-        console.log(tblFavoris);
+        
       for (var i = 0, l = tblFavoris.length; i < l; ++i) {
+          console.log("'"+tblFavoris[i]+"'");
         AncmtService.get({'id': tblFavoris[i]}).$promise.then(function(data) {
           self.myAncmts.push(data);
         });

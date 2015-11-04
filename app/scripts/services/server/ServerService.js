@@ -138,7 +138,7 @@ angular.module('GameSwap')
     };
     
     this.getFavorisAnnoncement = function() {
-        return JSON.stringify($window.localStorage.favoris_annoncement);
+        return $window.localStorage.favoris_annoncement;
     };
 
     return this;
