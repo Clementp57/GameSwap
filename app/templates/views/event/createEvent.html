@@ -1,71 +1,69 @@
-<ion-view view-title="Event Creation">
-<ion-header-bar align-title="center" class="bar-positive">
-<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-<h1 class="title">GameSwap</h1>
-</ion-header-bar>
-
-<ion-content>
+<ion-view view-title="Créer un évenement">
+    <ion-nav-buttons side="primary">
+        <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+    </ion-nav-buttons>
+    <ion-content>
 
 
-<div class="card">
-    <form name="eventForm" ng-submit="ctrl.validateEvent(eventForm.$valid)" novalidate>
-        <div class="list">
-            <div class="item item-divider">
-            <h2>Créer un évenement</h2>
-                <button class="button button-small button-energized" ng-click="ctrl.getPictureFromGallery()">
-                  Ajouter une image
+    <div class="card">
+        <form name="eventForm" ng-submit="ctrl.validateEvent(eventForm.$valid)" novalidate>
+            <div class="list">
+                <div class="item item-divider">
+                <h2>Créer un évenement</h2>
+                    <button class="button button-small button-energized" ng-click="ctrl.getPictureFromGallery()">
+                      Ajouter une image
+                    </button>
+                </div>
+                <img class="full-image" id="eventPoster" alt="">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Nom de l'évenement</span>
+                    <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
+                </label>
+                <ionic-datepicker input-obj="ctrl.datePicker">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Date</span>
+                        <input type="text" placeholder="Date" name="date" ng-model="ctrl.eventPrettyDate" required>
+                    </label>
+                </ionic-datepicker>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Jeu</span>
+                    <input type="text" placeholder="Jeu" ng-model="ctrl.event.game" name="game" required>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Plateforme
+                    </div>
+                    <select ng-model="ctrl.event.plateform" name="plateform" ng-model="ctrl.event.plateform"  required>
+                        <option selected>Playstation 4</option>
+                        <option>Xbox one</option>
+                        <option>PC</option>
+                        <option>Wii U</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Description</span>
+                    <textarea placeholder="Description" ng-model="ctrl.event.description" name="description" required></textarea>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Lieu</span>
+                    <ion-google-place id="locationName" placeholder="Adresse, Code Postal..." ng-model="ctrl.event.locationName" name="location" ng-change="ctrl.locationChanged()" required />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Details</span>
+                    <textarea placeholder="Details" ng-model="ctrl.event.details" name="details"></textarea>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Nombre de participants</span>
+                    <input type="number" placeholder="Nombre de participants" ng-model="ctrl.event.participantNb" name="participantNb" required>
+                </label>
+
+                <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
+                    Valider
                 </button>
             </div>
-            <img id="eventPoster" alt="">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Nom de l'évenement</span>
-                <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
-            </label>
-            <ionic-datepicker input-obj="ctrl.datePicker">
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Date</span>
-                    <input type="text" placeholder="Date" name="date" ng-model="ctrl.eventPrettyDate" required>
-                </label>
-            </ionic-datepicker>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Jeu</span>
-                <input type="text" placeholder="Jeu" ng-model="ctrl.event.game" name="game" required>
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Plateforme
-                </div>
-                <select ng-model="ctrl.event.platform" name="plateform" ng-model="ctrl.event.plateform"  required>
-                    <option selected>Playstation 4</option>
-                    <option>Xbox one</option>
-                    <option>PC</option>
-                    <option>Wii U</option>
-                </select>
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Description</span>
-                <textarea placeholder="Description" ng-model="ctrl.event.description" name="description" required></textarea>
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Lieu</span>
-                <ion-google-place id="locationName" placeholder="Adresse, Code Postal..." ng-model="ctrl.event.locationName" name="location" ng-change="ctrl.locationChanged()" required />
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Details</span>
-                <textarea placeholder="Details" ng-model="ctrl.event.details" name="details"></textarea>
-            </label>
-
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Nombre de participants</span>
-                <input type="number" placeholder="Nombre de participants" ng-model="ctrl.event.participantNb" name="participantNb" required>
-            </label>
-
-            <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
-                Valider
-            </button>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
 </ion-content>
 

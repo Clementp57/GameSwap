@@ -1,36 +1,35 @@
-<ion-view view-title="Annoncements around me" class="ancmt">
-<ion-header-bar align-title="center" class="bar-positive">
-<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-<h1 class="title">GameSwap</h1>
-</ion-header-bar>
+<ion-view view-title="Evenements à proximité" class="ancmt" hide-back-button="true">
+  <ion-nav-buttons side="primary">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
 
-<ion-content>
-    <ion-refresher
-    pulling-text="Pull to refresh..."
-    on-refresh="ctrl.doRefresh()">
-    </ion-refresher>
-    <ion-list>
-      <div class="list card" ng-repeat="event in ctrl.events"> 
-        <div class="item item-avatar">
-          <img src="{{event.userPic}}">
-          <h2>{{event.title}}</h2>
-          <p>{{ event.date | amDateFormat:'DD.MM.YYYY' }} (<span am-time-ago="event.date"></span>)</p>
-        </div>
+  <ion-content>
+      <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="ctrl.doRefresh()">
+      </ion-refresher>
+      <ion-list>
+        <div class="list card" ng-repeat="event in ctrl.events"> 
+          <div class="item item-avatar">
+            <img src="{{event.userPic}}">
+            <h2>{{event.title}}</h2>
+            <p>{{ event.date | amDateFormat:'DD.MM.YYYY' }} (<span am-time-ago="event.date"></span>)</p>
+          </div>
 
-        <div class="item item-body">
-          <img class="full-image" src="{{event.poster}}">
-          <strong>{{event.game}} / {{event.plateform}}</strong>
-          <p>
-            {{event.description}}
-          </p>
-          <p>
-            <a href="#" class="subdued">1 Like</a>
-            <a href="#" class="subdued">5 Comments</a>
-          </p>
+          <div class="item item-body">
+            <img class="full-image" src="{{event.poster}}">
+            <strong>{{event.game}} / {{event.plateform}}</strong>
+            <p>
+              {{event.description}}
+            </p>
+          </div>
+          <a class="item item-icon-right assertive" ui-sref="app.event({id: '{{event._id}}' })" style="text-align:right;">
+            <i class="icon ion-chevron-right"></i>
+             Voir la suite
+          </a>
         </div>
-      </div>
-    </ion-list>
-</ion-content>
+      </ion-list>
+  </ion-content>
 
 </ion-view>
 

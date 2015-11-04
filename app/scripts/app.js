@@ -17,7 +17,7 @@ angular.module('GameSwap', ['ionic',
   'ionic-datepicker'
 ])
 
-.run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment) {
+.run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment, $ionicLoading) {
 
   // Moment
   amMoment.changeLocale('fr');
@@ -28,6 +28,9 @@ angular.module('GameSwap', ['ionic',
   });
 
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+    $ionicLoading.show({
+      template: '<ion-spinner icon="ripple"></ion-spinner>'
+    });
     if (toState.authenticate && !ServerService.isLogged()) {
       event.preventDefault();
       // User isn’t authenticated, we redirect him to login
@@ -44,7 +47,9 @@ angular.module('GameSwap', ['ionic',
 
   });
 
-
+  $rootScope.$on('$stateChangeSuccess', function() {
+    $ionicLoading.hide();
+  });
 
   $ionicPlatform.ready(function() {
     // Plugin stuffs
@@ -73,7 +78,6 @@ angular.module('GameSwap', ['ionic',
       abstract: false,
       templateUrl: 'templates/views/login.html',
       controller: 'LoginController as ctrl'
-
     })
     .state('app.home', {
       url: '/home',
@@ -103,7 +107,8 @@ angular.module('GameSwap', ['ionic',
           templateUrl: 'templates/views/ancmt/ancmtDetail.html',
           controller: 'AncmtDetailController as ctrl'
         }
-      }
+      },
+      authenticate: true
     })
     .state('app.events', {
       url: '/events',
@@ -116,8 +121,7 @@ angular.module('GameSwap', ['ionic',
       authenticate: true
     })
     .state('app.createEvent', {
-      url: '/createEvent',
-      cache: true,
+      url: '/event/createEvent',
       views: {
         'viewContent': {
           templateUrl: 'templates/views/event/createEvent.html',
@@ -126,9 +130,25 @@ angular.module('GameSwap', ['ionic',
       },
       authenticate: true
     })
+    .state('app.event', {
+      url: "/event/:id",
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/event/eventDetail.html',
+          controller: 'EventDetailController as ctrl'
+        }
+      },
+      resolve: {
+        eventPromise: function(EventService, $stateParams) {
+          return EventService.get({
+            'id': $stateParams.id
+          }).$promise;
+        }
+      },
+      authenticate: true
+    })
     .state('app.createAncmt', {
-      url: '/createAnoncement',
-      cache: true,
+      url: '/annoncements/createAnoncement',
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/createAncmt.html',

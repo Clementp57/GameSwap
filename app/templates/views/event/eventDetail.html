@@ -1,0 +1,47 @@
+<ion-view view-title="{{ctrl.event.title}}" class="ancmt">
+	<ion-nav-buttons side="primary">
+  	</ion-nav-buttons>
+<ion-content>
+	<!-- <map autolocate="false" marker="{{ctrl.event.coords}}"></map> -->
+	<div class="list card">
+
+	  <div class="item item-avatar">
+	    <img ng-src="{{ctrl.event.userPic}}">
+	    <h2>{{ctrl.event.title}}</h2>
+	    <p>{{ctrl.event.game}} / {{ctrl.event.platform}}</p>
+	  </div>
+
+	  <div class="item item-image">
+	    <img ng-src="{{ctrl.event.poster}}">
+	  </div>
+
+	  <div class="item item-body">
+	  	<label>Description:</label>
+		<p>
+			{{ctrl.event.description}}
+		</p>
+
+		<label>Détails:</label>
+		<p>
+			{{ctrl.event.details}}
+		</p>
+
+		<label>Adresse:</label>
+		<p>{{ctrl.event.locationName}}</p>
+
+		<label>Organisateur:</label>
+		<p>{{ctrl.author.name.first}} {{ ctrl.author.name.last}}</p>
+
+		<button class="button icon-left ion-paper-airplane button-positive" ng-click="ctrl.sendMail()">Envoyer un mail</button>
+	  </div>
+
+	  <a class="item item-icon-left assertive" ng-click="ctrl.showMapPopup()">
+	    <i class="icon ion-map"></i>
+	    Voir sur la carte
+	  </a>
+
+	</div>
+</ion-content>
+
+</ion-view>
+

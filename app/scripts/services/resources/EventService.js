@@ -11,24 +11,30 @@ angular.module('GameSwap')
 	.factory('EventService', function($resource, ApiService) {
 		var eventsEndpoint = ApiService.getEndpoint() + '/events/:id';
 
-		var Event = $resource(eventsEndpoint, {
+		var Event = $resource(eventsEndpoint, {}, {
 			get: {
-				method: 'GET'
-			}
-		}, {
+				method : 'GET',
+				params: {
+					id: 'id'
+				}
+			},
 			addComment: {
 				method: 'POST',
 				url: ApiService.getEndpoint() + '/events/comments'
 			},
 			getAllComments: {
 				method: 'GET',
-				params: { id: 'id'},
+				params: {
+					id: 'id'
+				},
 				url: ApiService.getEndpoint() + '/events/:id/comments',
 				isArray: true
 			},
 			deleteComment: {
 				method: 'DELETE',
-				params: { id : 'id'},
+				params: {
+					id: 'id'
+				},
 				url: ApiService.getEndpoint() + '/events/comments/:id'
 			}
 		});
