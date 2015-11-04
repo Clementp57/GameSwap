@@ -24,7 +24,7 @@ angular.module('GameSwap')
     
     this.deleteAnnoncement = function (id){
         AncmtService.delete({'id': id }).$promise.then(function(data) {
-          console.log(data);
+          console.log("Annoncment remove !");
         });
         ServerService.removeFromMyAnnoncement(id);
     };

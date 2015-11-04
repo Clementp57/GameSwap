@@ -74,7 +74,7 @@ angular.module('GameSwap')
         quality: 50,
         destinationType: Camera.DestinationType.DATA_URL,
         correctOrientation: true,
-        targetWidth: 150
+        targetWidth: 600
       });
 
       function onSuccess(imageData) {
