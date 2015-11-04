@@ -7,14 +7,42 @@
  * # EventService
  */
 angular.module('GameSwap')
-  // use factory for services
-  .factory('EventService', function($resource, ApiService) {
-    var usersEndpoint = ApiService.getEndpoint()  + '/events/:id';
+	// use factory for services
+	.factory('EventService', function($resource, ApiService) {
+		var eventsEndpoint = ApiService.getEndpoint() + '/events/:id';
 
-    return $resource(usersEndpoint, {
-      get: {
-        method: 'GET'
-      }
-    });
-  });
+		var Event = $resource(eventsEndpoint, {}, {
+			get: {
+				method : 'GET',
+				params: {
+					id: 'id'
+				}
+			},
+			addComment: {
+				method: 'POST',
+				url: ApiService.getEndpoint() + '/events/comments'
+			},
+			getAllComments: {
+				method: 'GET',
+				params: {
+					id: 'id'
+				},
+				url: ApiService.getEndpoint() + '/events/:id/comments',
+				isArray: true
+			},
+			deleteComment: {
+				method: 'DELETE',
+				params: {
+					id: 'id'
+				},
+				url: ApiService.getEndpoint() + '/events/comments/:id'
+			}
+		});
 
+		Event.prototype.addComment = function(comment) {
+			return $http.post(ApiService.getEndpoint() + '/events/:id/comments', comment);
+		};
+
+
+		return Event;
+	});

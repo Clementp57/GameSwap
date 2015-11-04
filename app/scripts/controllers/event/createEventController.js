@@ -14,7 +14,7 @@ angular.module('GameSwap')
 
     self.datePicker = DatepickerService.getDateConfigurationObject();
     self.datePicker.callback = function(val) {
-        self.event.date = val; 
+        self.event.date = new Date(val).toISOString();   
         self.eventPrettyDate = $filter('amDateFormat')(val, 'dddd Do MMMM YYYY');
     };  
 
@@ -23,8 +23,7 @@ angular.module('GameSwap')
             quality: 50,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-            correctOrientation: true,
-            targetHeight: 200
+            correctOrientation: true
           };
         navigator.camera.getPicture(function(data){
             console.log('got photo !');
