@@ -13,7 +13,6 @@
 
 @import "layout/layout";
 
-
 /**
  * MENU
  */
@@ -26,30 +25,60 @@
 
 @import "views/home";
 @import "views/map";
-
 @import "ion-google-places";
-
-.has-custom-header {
-	top: 80px;
-} 
-.hero.no-header{
-    text-align: center;
-    margin: 4rem 0;
-    img{
-        width:30%;
-    }
+ .has-custom-header {
+  top: 80px;
 }
-#imgGame{
-    margin: 0 2%;
+.hero.no-header {
+  text-align: center;
+  margin: 4rem 0;
+  img {
+    width: 30%;
+  }
 }
-.fav{
-    color : $favYellow;
+#imgGame {
+  margin: 0 2%;
 }
-#autocomplete{
-    margin:0;
-    opacity: .85;
-    background-color:#D3D3D3;
+.fav {
+  color: $favYellow;
 }
-#login button{  
-    line-height: 2rem;
+#autocomplete {
+  margin: 0;
+  opacity: .85;
+  background-color: #D3D3D3;
+}
+#login button {
+  line-height: 2rem;
+}
+.ancmtList,
+.ancmtFav,
+.myAncmt{
+  .card {
+    border-style: solid;
+    border-left-width: 5px;
+  }
+  .playstation3 {
+    border-left-color: $ps3;
+  }
+  .playstation4 {
+    border-left-color: $ps4;
+  }
+  .xboxone {
+    border-left-color: $xboxone;
+  }
+  .xbox360 {
+    border-left-color: $xbox360;
+  }
+  .pc {
+    border-left-color: $pc;
+  }
+  .wii {
+    border-left-color: $wii;
+  }
+  .wiiu {
+    border-left-color: $wiiu;
+  }
+  .autre {
+    border-left-color: $autre;
+  }
 }

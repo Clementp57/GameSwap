@@ -10,7 +10,7 @@ angular.module('GameSwap')
   .controller('CreateAncmtController', function(UserService, AncmtService, GameService, ServerService, $state) {
     var self = this;
 
-    self.platform = ["Playsation 3", "Playsation 4", "Xbox 360", "Xbox One", "PC", "Wii", "Wii U", "Ancien modèle"];
+    self.plateform = ["Playstation 3", "Playstation 4", "Xbox 360", "Xbox One", "PC", "Wii", "Wii U", "Autre"];
 
     self.ancmt = {};
     self.gamesList = [];

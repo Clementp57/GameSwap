@@ -1,4 +1,4 @@
-<ion-view view-title="Offres autour de moi" class="ancmt" hide-back-button="true">
+<ion-view view-title="Offres autour de moi" class="ancmtList" hide-back-button="true">
   <ion-nav-buttons side="primary">
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
@@ -8,7 +8,7 @@
     </ion-refresher>
     <ion-list>
 
-      <div class="card" ng-repeat="ancmt in ctrl.ancmts">
+      <div class="card {{ancmt.plateform | nospace | lowercase}}" ng-repeat="ancmt in ctrl.ancmts">
         <div class="item item-thumbnail-left">
           <img src="{{ancmt.img}}">
           <div class="item item-divider">
