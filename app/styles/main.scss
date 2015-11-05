@@ -45,7 +45,12 @@
 #autocomplete {
   margin: 0;
   opacity: .85;
-  background-color: #D3D3D3;
+  background-color: #E0E1E0;
+    li{
+        background-color:transparent;
+        border-color:#fff;
+        font-size: 13px;
+    }
 }
 #login button {
   line-height: 2rem;
