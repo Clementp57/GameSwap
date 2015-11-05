@@ -1,52 +1,33 @@
 <ion-view view-title="Offres autour de moi" class="ancmt">
-<ion-nav-buttons side="primary">
-</ion-nav-buttons>
+  <ion-nav-buttons side="primary">
+  </ion-nav-buttons>
 
-<ion-content>
-	<ion-refresher
-	pulling-text="Pull to refresh..."
-	on-refresh="ctrl.doRefresh()">
-	</ion-refresher>
-	
-	<div class="list card">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="ctrl.doRefresh()">
+    </ion-refresher>
 
-	  <div class="item item-avatar">
-	    <img src="mcfly.jpg">
-	    <h2>{{ctrl.ancmt.title}}</h2>
-	    <p>{{ctrl.ancmt.game}}, {{ctrl.ancmt.platform}}</p>
-	  </div>
+    <div class="list card">
 
-	  <div class="item item-body">
-	    <img class="full-image" src="{{ancmt.img}}">
-	    <p>
-	      {{ctrl.ancmt.description}}	    
-	    </p>
-	    <p>
-	      <a href="#" class="subdued">1 Like</a>
-	      <a href="#" class="subdued">5 Comments</a>
-	    </p>
-	  </div>
+      <div class="item item-avatar">
+        <img src="{{ctrl.author.picture}}">
+        <h2>{{ctrl.ancmt.title}}</h2>
+        <p>{{ctrl.ancmt.game}}, {{ctrl.ancmt.platform}}</p>
+      </div>
 
-	  <div class="item tabs tabs-secondary tabs-icon-left">
-	    <a class="tab-item" href="#">
-	      <i class="icon ion-thumbsup"></i>
-	      {{ctrl.ancmt.likes || 0}} Like
-	    </a>
-	    <a class="tab-item" href="#">
-	      <i class="icon ion-chatbox"></i>
-	      Comment
-	    </a>
-	    <a class="tab-item" href="#">
-	      <i class="icon ion-share"></i>
-	      Share
-	    </a>
-	  </div>
+      <div class="item item-body">
+        <img class="full-image" src="{{ctrl.ancmt.img}}">
+        <p>
+          {{ctrl.ancmt.description}}
+        </p>
+      </div>
 
-	</div>
+      <button class="button icon-left button-full ion-paper-airplane button-positive" ng-click="ctrl.sendMail()">Contacter {{ctrl.author.name.first}}</button>
+    </div>
 
 
 
-</ion-content>
+  </ion-content>
 
 </ion-view>
+
 

@@ -14,7 +14,9 @@ angular.module('GameSwap')
 
     self.ancmt = {};
     self.gamesList = [];
-
+    
+    self.ancmt.creatorId = ServerService.getLoggedUser()._id;
+    
     self.autocompleteDelay = null;
 
     UserService.query().$promise.then(function(data) {
@@ -28,7 +30,7 @@ angular.module('GameSwap')
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
-          console.log('TODO: redirect');
+          $state.go('app.ancmt');
         }, function(error) {
           console.log('damned... there was an error :', error);
         });
