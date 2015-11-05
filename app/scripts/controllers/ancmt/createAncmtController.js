@@ -14,6 +14,7 @@ angular.module('GameSwap')
 
     self.ancmt = {};
     self.gamesList = [];
+    self.ancmt.img = null;
     
     self.ancmt.creatorId = ServerService.getLoggedUser()._id;
     
@@ -31,7 +32,7 @@ angular.module('GameSwap')
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
-          $state.go('app.ancmt');
+          $state.go('app.ancmts');
         }, function(error) {
           console.log('damned... there was an error :', error);
         });

@@ -108,6 +108,13 @@ angular.module('GameSwap', ['ionic',
           controller: 'AncmtDetailController as ctrl'
         }
       },
+      resolve: {
+        eventPromise: function(EventService, $stateParams) {
+          return EventService.get({
+            'id': $stateParams.id
+          }).$promise;
+        }
+      },
       authenticate: true
     })
     .state('app.events', {
@@ -149,6 +156,7 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.createAncmt', {
       url: '/annoncements/createAnoncement',
+      cache: false,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/createAncmt.html',
@@ -183,6 +191,13 @@ angular.module('GameSwap', ['ionic',
         'viewContent': {
           templateUrl: 'templates/views/ancmt/ancmtDetail.html',
           controller: 'AncmtDetailController as ctrl'
+        }
+      },
+      resolve: {
+        eventPromise: function(EventService, $stateParams) {
+          return EventService.get({
+            'id': $stateParams.id
+          }).$promise;
         }
       },
       authenticate: true

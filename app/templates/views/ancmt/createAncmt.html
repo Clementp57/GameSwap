@@ -31,9 +31,8 @@
           <button type='button' class="button button-full button-assertive" ng-click="ctrl.takePicture();">
             Prendre une photo de mon jeu
           </button>
-          <div class="item item-body">
-            <img src="../images/icon.png" id="imgGame" ng-model="ctrl.ancmt.img" width="100%" />
-          </div>
+          <img id="imgGame" width="96%"/>
+          <input type="hidden" id="imgGameSrc" value="{{ctrl.ancmt.img}}" required>
           <button class="button button-balanced button-full margin-vertical" type="submit" ng-disabled="anoncementForm.$invalid">
             Valider
           </button>
@@ -43,5 +42,6 @@
   </ion-content>
 
 </ion-view>
+
 
 
