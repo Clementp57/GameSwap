@@ -7,7 +7,7 @@
  * # CreateAncmtController
  */
 angular.module('GameSwap')
-  .controller('CreateAncmtController', function(UserService, AncmtService, GameService, ServerService) {
+  .controller('CreateAncmtController', function(UserService, AncmtService, GameService, ServerService, $state) {
     var self = this;
 
     self.platform = ["Playsation 3", "Playsation 4", "Xbox 360", "Xbox One", "PC", "Wii", "Wii U", "Ancien modèle"];
@@ -24,8 +24,7 @@ angular.module('GameSwap')
     self.validateAncmt = function(isValid) {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
       if (isValid) {
-        
-        self.ancmt.date = new Date();
+          self.ancmt.date = new Date();
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
@@ -74,7 +73,7 @@ angular.module('GameSwap')
         quality: 50,
         destinationType: Camera.DestinationType.DATA_URL,
         correctOrientation: true,
-        targetWidth: 150
+        targetWidth: 600
       });
 
       function onSuccess(imageData) {
