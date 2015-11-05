@@ -11,10 +11,12 @@ angular.module('GameSwap')
         if (ServerService.isLogged()) {
             $state.go('app.home');
         }
-
+        
         this.newUser = {};
         var self = this;
 
+        self.logo = "images/icon.png";
+    
         this.loginFacebook = function() {
             $cordovaOauth.facebook("392617384261537", ["email", "public_profile"]).then(function(result) {
                 $window.localStorage.accessToken = result.access_token;
