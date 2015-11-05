@@ -9,7 +9,7 @@
     <div class="list card">
 
       <div class="item item-avatar">
-        <img src="mcfly.jpg">
+        <img src="{{ctrl.author.picture}}">
         <h2>{{ctrl.ancmt.title}}</h2>
         <p>{{ctrl.ancmt.game}}, {{ctrl.ancmt.platform}}</p>
       </div>
@@ -21,7 +21,7 @@
         </p>
       </div>
 
-      <button class="button icon-left ion-paper-airplane button-positive" ng-click="ctrl.sendMail()">Contacter {{ctrl.author.name.first}}</button>
+      <button class="button icon-left button-full ion-paper-airplane button-positive" ng-click="ctrl.sendMail()">Contacter {{ctrl.author.name.first}}</button>
     </div>
 
 

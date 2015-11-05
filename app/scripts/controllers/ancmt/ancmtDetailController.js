@@ -8,17 +8,20 @@
  */
 angular.module('GameSwap')
   .controller('AncmtDetailController', function(UserService, AncmtService, $stateParams) {
-    var self= this;
+    var self = this;
     self.ancmt = {};
-    
-    AncmtService.get({ 'id': $stateParams.id}).$promise.then(function(data) {
-      console.log(data);
+
+    AncmtService.get({
+      'id': $stateParams.id
+    }).$promise.then(function(data) {
       self.ancmt = data;
-    });
-    
-    UserService.get({id : self.ancmt.creatorId}).$promise.then(function(user) {
-        console.log(user);
+      UserService.get({
+        id: self.ancmt.creatorId
+      }).$promise.then(function(user) {
         self.author = user;
+      });
     });
+
+
 
   });

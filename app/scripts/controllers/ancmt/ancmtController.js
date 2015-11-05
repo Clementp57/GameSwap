@@ -39,6 +39,7 @@ angular.module('GameSwap')
     
     this.doRefresh = function() {
       AncmtService.query().$promise.then(function(data) {
+          console.log(data);
         self.ancmts = data;
       });
       $scope.$broadcast('scroll.refreshComplete');
