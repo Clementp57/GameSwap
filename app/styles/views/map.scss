@@ -1,8 +1,16 @@
 #map {
 	width:100%;
-	height:500px;
+	height:100%;
 }
 
 .mapPopup > .popup{
-	width: 90%;
+	width: calc(100% - 50px);
+	height: calc(100% - 100px);
 }
+
+.mapPopup > .popup > .popup-body{
+	width: 100%;
+	height: 100%;
+}
+
+
