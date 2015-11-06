@@ -193,5 +193,5 @@ angular.module('GameSwap', ['ionic',
     });
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('app/home');
+  $urlRouterProvider.otherwise('app/annoncements');
 });
