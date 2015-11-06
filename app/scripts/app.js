@@ -176,6 +176,16 @@ angular.module('GameSwap', ['ionic',
         }
       },
       authenticate: true
+    })
+  .state('app.favAncmt', {
+      url: "/annoncement/:id",
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/ancmt/ancmtDetail.html',
+          controller: 'AncmtDetailController as ctrl'
+        }
+      },
+      authenticate: true
     });
 
   // redirects to default route for undefined routes

@@ -19,7 +19,6 @@ angular.module('GameSwap')
         AncmtService.get({'id': tblFavAncmt[i]}).$promise.then(function(data) {
           self.favAncmts.push(data);
         });
-        // Maybe we can handle this in one request (eg : getAllAncmt for an userId)
       }
     }
 

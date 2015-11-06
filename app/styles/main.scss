@@ -32,12 +32,22 @@
 .has-custom-header {
 	top: 80px;
 } 
+.hero.no-header{
+    text-align: center;
+    margin: 4rem 0;
+    img{
+        width:30%;
+    }
+}
 
 .fav{
-    color : #ffd700;
+    color : $favYellow;
 }
 #autocomplete{
     margin:0;
     opacity: .85;
     background-color:#D3D3D3;
+}
+#login button{  
+    line-height: 2rem;
 }
