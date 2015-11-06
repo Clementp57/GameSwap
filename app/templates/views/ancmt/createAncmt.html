@@ -5,11 +5,11 @@
 
   <ion-content>
     <div class="card">
-      <form name="anoncementForm" ng-submit="ctrl.validateAncmt(anoncementForm.$valid)" novalidate>
+      <form name="annoncementForm" ng-submit="ctrl.validateAncmt(annoncementForm.$valid)" novalidate>
         <div class="list">
           <label class="item item-input item-stacked-label">
             <span class="input-label">Titre de l'annonce</span>
-            <input type="text" placeholder="Titre" ng-model="ctrl.ancmt.title" required>
+            <input type="text" name="title" placeholder="Titre" ng-model="ctrl.ancmt.title" required>
           </label>
           <label class="item item-input item-select">
             <span class="input-label">Plateforme</span>
@@ -32,8 +32,7 @@
             Prendre une photo de mon jeu
           </button>
           <img id="imgGame" width="96%"/>
-          <input type="hidden" id="imgGameSrc" value="{{ctrl.ancmt.img}}" required>
-          <button class="button button-balanced button-full margin-vertical" type="submit" ng-disabled="anoncementForm.$invalid">
+          <button class="button button-balanced button-full margin-vertical" type="submit" ng-disabled="annoncementForm.$invalid">
             Valider
           </button>
         </div>
