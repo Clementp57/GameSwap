@@ -87,6 +87,11 @@ angular.module('GameSwap', ['ionic',
           controller: 'AncmtController as ctrl'
         }
       },
+      resolve: {
+        eventPromise: function(AncmtService) {
+          return AncmtService.query().$promise;
+        }
+      },
       authenticate: true
     })
     .state('app.ancmt', {
@@ -112,6 +117,11 @@ angular.module('GameSwap', ['ionic',
         'viewContent': {
           templateUrl: 'templates/views/event/events.html',
           controller: 'EventController as ctrl'
+        }
+      },
+      resolve: {
+        eventPromise: function(EventService) {
+          return EventService.query().$promise;
         }
       },
       authenticate: true

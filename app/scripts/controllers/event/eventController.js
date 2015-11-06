@@ -7,11 +7,13 @@
  * # EventController
  */
 angular.module('GameSwap')
-    .controller('EventController', function(EventService, ServerService) {
+    .controller('EventController', function(eventPromise, EventService, ServerService) {
         var self = this;
         self.events = [];
+    
+        self.events = eventPromise;
 
-        EventService.query().$promise.then(function(events)  {
+      /*  EventService.query().$promise.then(function(events)  {
             self.events = events;
 
                 // var event = self.events[0];
@@ -29,7 +31,7 @@ angular.module('GameSwap')
                 //         console.log('got comments !', comments);
                 //     });
                 // });
-        });
+        });*/
 
 
     });

@@ -32,6 +32,15 @@
 .bar.bar-positive{
     background-color:#f44336;
 }
+#login{
+    background-image: url(../images/bg-home.png);
+    background-position: center; 
+    background-size: auto 65%;
+}
+#login button {
+  line-height: 2rem;
+    background-color: #fff;
+}
 .hero.no-header {
   text-align: center;
   margin: 4rem 0;
@@ -41,9 +50,6 @@
 }
 #imgGame {
   margin: 0 2%;
-}
-.fav {
-  color: $favYellow;
 }
 #autocomplete {
   margin: 0;
@@ -55,8 +61,8 @@
         font-size: 13px;
     }
 }
-#login button {
-  line-height: 2rem;
+.tabs-icon-left a{
+    line-height: 3rem;
 }
 .ancmtList,
 .ancmtFav,
