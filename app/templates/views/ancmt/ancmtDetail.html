@@ -1,4 +1,4 @@
-<ion-view view-title="{{ctrl.ancmt.title}}" class="ancmt">
+<ion-view view-title="{{ctrl.ancmt.title}}" class="ancmtDetail">
   <ion-nav-buttons side="primary">
   </ion-nav-buttons>
 
@@ -8,7 +8,9 @@
 
       <div class="item item-avatar">
         <img src="{{ctrl.author.picture}}">
-        <h2>{{ctrl.ancmt.title}}</h2>
+        <div  class="item item-divider">   
+             <h2>{{ctrl.ancmt.title}}</h2>
+        </div>
         <p>{{ctrl.ancmt.game}}, {{ctrl.ancmt.platform}}</p>
       </div>
 

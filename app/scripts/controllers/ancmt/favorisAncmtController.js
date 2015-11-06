@@ -9,11 +9,12 @@
 angular.module('GameSwap')
   .controller('FavorisAncmtController', function(ServerService, AncmtService, $q) {
     var self = this;
-    self.favAncmts = [];
 
     this.getAllFav = function() {
+      self.noData = false;
+      self.favAncmts = [];
       if (ServerService.getFavorisAnnoncement()) {
-
+        self.noData = false;
         var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
 
         for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
@@ -23,6 +24,8 @@ angular.module('GameSwap')
             self.favAncmts.push(data);
           });
         }
+      } else {
+        self.noData = true;
       }
     };
 

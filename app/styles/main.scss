@@ -29,17 +29,18 @@
  .has-custom-header {
   top: 80px;
 }
-.bar.bar-positive{
-    background-color:#f44336;
+.bar.bar-positive {
+  background-color: #f44336;
 }
-#login{
-    background-image: url(../images/bg-home.png);
-    background-position: center; 
-    background-size: auto 65%;
+#login {
+  background-image: url(../images/bg-home.png);
+  background-position: center;
+  background-size: auto 65%;
 }
 #login button {
   line-height: 2.5rem;
   color: #fff;
+  font-size: 20px;
 }
 .hero.no-header {
   text-align: center;
@@ -55,19 +56,19 @@
   margin: 0;
   opacity: .85;
   background-color: #E0E1E0;
-    li{
-        background-color:transparent;
-        border-color:#fff;
-        font-size: 13px;
-    }
+  li {
+    background-color: transparent;
+    border-color: #fff;
+    font-size: 13px;
+  }
 }
-.tabs-icon-left a{
-    line-height: 3rem;
-    font-size: 12px !important;
+.tabs-icon-left a {
+  line-height: 3rem;
+  font-size: 12px !important;
 }
 .ancmt,
 .ancmtFav,
-.myAncmt{
+.myAncmt {
   .card {
     border-style: solid;
     border-left-width: 5px;
@@ -97,12 +98,19 @@
     border-left-color: $autre;
   }
 }
-.item-divider h2{
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 14px;
-    height: 16px;
+.item h2 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  height: 16px;
 }
-.item-thumbnail-left .item-text-wrap{
-    font-size : 12px;
+.item-thumbnail-left .item-text-wrap {
+  font-size: 12px;
+}
+.list .input-label {
+  font-weight: bold;
+}
+.title-noData {
+  text-align: center;
+  padding: 10% 0;
 }

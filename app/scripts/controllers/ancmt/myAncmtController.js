@@ -12,7 +12,9 @@ angular.module('GameSwap')
 
     this.getAllMyAncmt = function() {
       self.myAncmts = [];
+      self.noData = false;
       if (ServerService.getMyAnnoncement()) {
+        self.noData = true;
         var tblMyAncmt = ServerService.getMyAnnoncement().split(',');
         for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
           AncmtService.get({
@@ -21,6 +23,8 @@ angular.module('GameSwap')
             self.myAncmts.push(data);
           });
         }
+      } else {
+        self.noData = true;
       }
     };
 
