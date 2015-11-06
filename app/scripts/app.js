@@ -40,8 +40,8 @@ angular.module('GameSwap', ['ionic',
     if (toState.url == '/login') {
       ServerService.initialize().then(function() {
         // If ServerService initialized with success (nb: User already
-        // has a token and it is valid) we go directly to home page
-        $state.go('app.home');
+        // has a token and it is valid) we go directly to annoncement page
+        $state.go('app.ancmts');
       }); // No catch there so that if ServerService did not find a token, we stay on login page
     }
 
@@ -78,17 +78,6 @@ angular.module('GameSwap', ['ionic',
       abstract: false,
       templateUrl: 'templates/views/login.html',
       controller: 'LoginController as ctrl'
-    })
-    .state('app.home', {
-      url: '/home',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/home.html',
-          controller: 'HomeController as ctrl'
-        }
-      },
-      authenticate: true
     })
     .state('app.ancmts', {
       url: '/annoncements',
