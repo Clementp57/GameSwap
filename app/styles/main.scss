@@ -38,8 +38,8 @@
     background-size: auto 65%;
 }
 #login button {
-  line-height: 2rem;
-    background-color: #fff;
+  line-height: 2.5rem;
+  color: #fff;
 }
 .hero.no-header {
   text-align: center;
@@ -63,8 +63,9 @@
 }
 .tabs-icon-left a{
     line-height: 3rem;
+    font-size: 12px !important;
 }
-.ancmtList,
+.ancmt,
 .ancmtFav,
 .myAncmt{
   .card {
@@ -95,4 +96,13 @@
   .autre {
     border-left-color: $autre;
   }
+}
+.item-divider h2{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    height: 16px;
+}
+.item-thumbnail-left .item-text-wrap{
+    font-size : 12px;
 }
