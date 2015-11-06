@@ -40,8 +40,8 @@ angular.module('GameSwap', ['ionic',
     if (toState.url == '/login') {
       ServerService.initialize().then(function() {
         // If ServerService initialized with success (nb: User already
-        // has a token and it is valid) we go directly to home page
-        $state.go('app.home');
+        // has a token and it is valid) we go directly to annoncement page
+        $state.go('app.ancmts');
       }); // No catch there so that if ServerService did not find a token, we stay on login page
     }
 
@@ -79,23 +79,17 @@ angular.module('GameSwap', ['ionic',
       templateUrl: 'templates/views/login.html',
       controller: 'LoginController as ctrl'
     })
-    .state('app.home', {
-      url: '/home',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/home.html',
-          controller: 'HomeController as ctrl'
-        }
-      },
-      authenticate: true
-    })
     .state('app.ancmts', {
       url: '/annoncements',
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/ancmts.html',
           controller: 'AncmtController as ctrl'
+        }
+      },
+      resolve: {
+        eventPromise: function(AncmtService) {
+          return AncmtService.query().$promise;
         }
       },
       authenticate: true
@@ -108,6 +102,13 @@ angular.module('GameSwap', ['ionic',
           controller: 'AncmtDetailController as ctrl'
         }
       },
+      resolve: {
+        eventPromise: function(EventService, $stateParams) {
+          return EventService.get({
+            'id': $stateParams.id
+          }).$promise;
+        }
+      },
       authenticate: true
     })
     .state('app.events', {
@@ -116,6 +117,11 @@ angular.module('GameSwap', ['ionic',
         'viewContent': {
           templateUrl: 'templates/views/event/events.html',
           controller: 'EventController as ctrl'
+        }
+      },
+      resolve: {
+        eventPromise: function(EventService) {
+          return EventService.query().$promise;
         }
       },
       authenticate: true
@@ -149,6 +155,7 @@ angular.module('GameSwap', ['ionic',
     })
     .state('app.createAncmt', {
       url: '/annoncements/createAnoncement',
+      cache: false,
       views: {
         'viewContent': {
           templateUrl: 'templates/views/ancmt/createAncmt.html',
@@ -185,9 +192,16 @@ angular.module('GameSwap', ['ionic',
           controller: 'AncmtDetailController as ctrl'
         }
       },
+      resolve: {
+        eventPromise: function(EventService, $stateParams) {
+          return EventService.get({
+            'id': $stateParams.id
+          }).$promise;
+        }
+      },
       authenticate: true
     });
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('app/home');
+  $urlRouterProvider.otherwise('app/annoncements');
 });

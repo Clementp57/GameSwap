@@ -9,7 +9,7 @@
 angular.module('GameSwap')
     .controller('LoginController', function($cordovaOauth, $window, $http, ServerService, $location, $state, $q) {
         if (ServerService.isLogged()) {
-            $state.go('app.home');
+            $state.go('app.ancmts');
         }
         
         this.newUser = {};
@@ -23,7 +23,7 @@ angular.module('GameSwap')
 
                 self.getFacebookUserInfos().then(function(user) {
                     ServerService.logUser(user.email).then(function() {
-                        $state.go('app.home');
+                        $state.go('app.ancmts');
                     }, function(error){
                         // User not yet created, registering
                         var newUser = {
@@ -35,7 +35,7 @@ angular.module('GameSwap')
                         };
                         console.log(newUser);
                         ServerService.registerUser(newUser).then(function() {
-                            $state.go('app.home');
+                            $state.go('app.ancmts');
                         }).catch(function(error) {
                             console.error('oops', error);
                         });
@@ -47,7 +47,7 @@ angular.module('GameSwap')
                 ServerService
                     .logUser("clementpeyrabere@gmail.com")
                     .then(function() {
-                        $state.go('app.home');
+                        $state.go('app.ancmts');
                     }).catch(function(error) {
                         console.error('oops', error);
                     });
@@ -63,7 +63,7 @@ angular.module('GameSwap')
                     .then(function(response){
                         var user = response.data;
                         ServerService.logUser(user.email).then(function() {
-                            $state.go('app.home');
+                            $state.go('app.ancmts');
                         }, function(error){
                             // User not yet created, registering
                             var newUser = {
@@ -76,7 +76,7 @@ angular.module('GameSwap')
                             };
                             console.log("NEW USER =>",newUser);
                             ServerService.registerUser(newUser).then(function() {
-                                $state.go('app.home');
+                                $state.go('app.ancmts');
                             }).catch(function(error) {
                                 console.error('oops', error);
                             });
@@ -89,7 +89,7 @@ angular.module('GameSwap')
                 ServerService
                     .logUser("clementpeyrabere@gmail.com")
                     .then(function() {
-                        $state.go('app.home');
+                        $state.go('app.ancmts');
                     }).catch(function(error) {
                         console.error('oops', error);
                     });
@@ -120,7 +120,7 @@ angular.module('GameSwap')
                 ServerService
                     .registerUser(this.user)
                     .then(function() {
-                        $state.go('app.home');
+                        $state.go('app.ancmts');
                     }).catch(function(error) {
                         console.error('oops', error);
                     })

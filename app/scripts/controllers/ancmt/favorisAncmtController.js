@@ -11,15 +11,21 @@ angular.module('GameSwap')
     var self = this;
     self.favAncmts = [];
 
-    if (ServerService.getFavorisAnnoncement()) {
-        
-      var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
-        
-      for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
-        AncmtService.get({'id': tblFavAncmt[i]}).$promise.then(function(data) {
-          self.favAncmts.push(data);
-        });
+    this.getAllFav = function() {
+      if (ServerService.getFavorisAnnoncement()) {
+
+        var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
+
+        for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
+          AncmtService.get({
+            'id': tblFavAncmt[i]
+          }).$promise.then(function(data) {
+            self.favAncmts.push(data);
+          });
+        }
       }
-    }
+    };
+
+    this.getAllFav();
 
   });

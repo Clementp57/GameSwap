@@ -9,7 +9,8 @@
 angular.module('GameSwap')
     .controller('EventController', function(EventService, ServerService, $ionicPopup, $scope) {
         var self = this;
-        self.events = [];
+    
+        self.events = eventPromise;
         self.eventsCoords = null;
 
         self.showEventsMap = function(){
@@ -28,15 +29,5 @@ angular.module('GameSwap')
                 console.log('Closed!', res);
             });
         };
-
-
-        EventService.query().$promise.then(function(events)  {
-            self.events = events;
-            self.eventsCoords = [];
-            angular.forEach(self.events, function(event) {
-                self.eventsCoords.push({lat: event.coords.lat, lon: event.coords.lon});
-            });
-        });
-
 
     });
