@@ -6,7 +6,7 @@ angular.module('GameSwap')
                 //@ reads the attribute value, = provides two-way binding, & works with functions
                 eventId: '='
             },
-            templateUrl: '../../templates/directives/comments.html',
+            templateUrl: 'templates/directives/comments.html',
             link: function($scope, element, attrs) {
                 $scope.comments = [];
                 $scope.$watch('eventId', function(eventId) {
