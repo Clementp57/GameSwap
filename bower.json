@@ -13,7 +13,8 @@
     "ngCordova": "~0.1.17-alpha",
     "angular-google-maps": "~2.2.1",
     "angular-moment": "1.0",
-    "ionic-datepicker": "~0.9.0"
+    "ionic-datepicker": "~0.9.0",
+    "ionic-filter-bar": "~1.1.1"
   },
   "resolutions": {
     "angular": "~1.4.3",

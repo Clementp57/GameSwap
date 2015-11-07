@@ -1,9 +1,10 @@
-<ion-view view-title="Evenements à proximité" class="event" hide-back-button="true">
+<ion-view view-title="Evenements" class="event" hide-back-button="true">
   <ion-nav-buttons side="left">
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-map" side="right" ng-click="ctrl.showEventsMap();"></button>
+    <button class="button button-icon icon ion-map" ng-click="ctrl.showEventsMap();"></button>
+    <button class="button button-icon ion-android-search" ng-click="ctrl.showFilterBar()"></button>
   </ion-nav-buttons> 
 
   <ion-content>
@@ -12,7 +13,7 @@
       on-refresh="ctrl.doRefresh()">
       </ion-refresher>
       <ion-list>
-        <div class="list card" ng-repeat="event in ctrl.events"> 
+        <div class="list card" ng-repeat="event in ctrl.filteredEvents"> 
           <div class="item item-avatar">
             <img ng-src="{{event.userPic}}">
             <h2>{{event.title}}</h2>

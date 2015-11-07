@@ -7,10 +7,11 @@
  * # EventController
  */
 angular.module('GameSwap')
-    .controller('EventController', function(eventsPromise, EventService, ServerService, $ionicPopup, $scope) {
+    .controller('EventController', function(eventsPromise, EventService, ServerService, $ionicPopup, $scope, $ionicFilterBar) {
         var self = this;
-    
+        var filterBarInstance;
         self.events = eventsPromise;
+        self.filteredEvents = eventsPromise;
 
         self.doRefresh = function() {
             EventService.query().$promise.then(function(events) {
@@ -18,6 +19,16 @@ angular.module('GameSwap')
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
+
+        self.showFilterBar = function () {
+          filterBarInstance = $ionicFilterBar.show({
+            items: self.events,
+            update: function (filteredItems) {
+              self.filteredEvents = filteredItems;
+            },
+            filterProperties: ['title', 'game', 'description']
+          });
+        };
 
         self.showEventsMap = function(){
             // An elaborate, custom popup
