@@ -5,7 +5,8 @@
   </ion-nav-buttons>
 
   <ion-content>
-    
+     <ion-refresher pulling-text="Pull to refresh..." on-refresh="ctrl.doRefresh()">
+    </ion-refresher>
     <ion-list>
 
       <div class="card {{favAncmt.plateform | nospace | lowercase}}" ng-repeat="favAncmt in ctrl.favAncmts">

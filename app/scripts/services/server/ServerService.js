@@ -142,6 +142,19 @@ angular.module('GameSwap')
   this.getFavorisAnnoncement = function() {
     return $window.localStorage.favoris_annoncement;
   };
+  this.removeFromFavoris = function(id) {
+    if ($window.localStorage.favoris_annoncement) {
+      var tblFav = $window.localStorage.favoris_annoncement.split(',');
+      var pos;
+      for (var i = 0, l = tblFav.length; i < l; ++i) {
+        if (tblFav[i] == id) {
+          pos = i;
+        }
+      }
+      tblFav.splice(pos, 1);
+      $window.localStorage.favoris_annoncement = tblFav;
+    }
+  };
   //MES ANNONCES
   this.registerMyAnnoncement = function(id) {
     if (!id) {
@@ -164,15 +177,17 @@ angular.module('GameSwap')
   };
 
   this.removeFromMyAnnoncement = function(id) {
-    var tblMyAncmt = $window.localStorage.my_annoncement.split(',');
-    var pos;
-    for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
-      if (tblMyAncmt[i] == id){
-        pos = i;
+    if ($window.localStorage.my_annoncement) {
+      var tblMyAncmt = $window.localStorage.my_annoncement.split(',');
+      var pos;
+      for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
+        if (tblMyAncmt[i] == id) {
+          pos = i;
+        }
       }
+      tblMyAncmt.splice(pos, 1);
+      $window.localStorage.my_annoncement = tblMyAncmt;
     }
-    tblMyAncmt.splice(pos, 1);
-    $window.localStorage.my_annoncement = tblMyAncmt;
   };
 
   return this;
