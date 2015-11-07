@@ -7,7 +7,7 @@
  * # EventController
  */
 angular.module('GameSwap')
-    .controller('EventController', function(eventsPromise, EventService, ServerService, $ionicPopup, $scope, $ionicFilterBar) {
+    .controller('EventController', function($state, eventsPromise, EventService, ServerService, $ionicPopup, $scope, $ionicFilterBar) {
         var self = this;
         var filterBarInstance;
         self.events = eventsPromise;
@@ -18,6 +18,10 @@ angular.module('GameSwap')
                 self.events = events;
                 $scope.$broadcast('scroll.refreshComplete');
             });
+        }
+
+        self.createEvent = function() {
+            $state.go('app.createEvent');
         }
 
         self.showFilterBar = function () {
