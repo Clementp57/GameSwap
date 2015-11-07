@@ -108,6 +108,9 @@
   line-height: 14px;
   height: 16px;
 }
+.item-thumbnail-left > img:first-child{
+    height: auto !important;
+}
 .item-thumbnail-left .item-text-wrap {
   font-size: 12px;
 }

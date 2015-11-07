@@ -184,7 +184,7 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        eventPromise: function(ServerService, AncmtService) {
+        favAncmtPromise: function(ServerService, AncmtService) {
           if (ServerService.getFavorisAnnoncement()) {
             var tblFavAncmt = ServerService.FavorisAnnoncement().split(',');
             var dataFav = [];
@@ -192,7 +192,6 @@ angular.module('GameSwap', ['ionic',
               AncmtService.get({
                 'id': tblFavAncmt[i]
               }).$promise.then(function(data) {
-                console.log(data);
                 dataFav.push(data);
               });
             }
@@ -212,7 +211,7 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        eventPromise: function(EventService, $stateParams) {
+        ancmtPromise: function(EventService, $stateParams) {
           return EventService.get({
             'id': $stateParams.id
           }).$promise;
