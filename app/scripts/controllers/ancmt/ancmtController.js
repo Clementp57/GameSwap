@@ -7,12 +7,12 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function($scope, eventPromise, ServerService, UserService, AncmtService, GameService, $q) {
+  .controller('AncmtController', function($scope, ancmtsPromise, ServerService, UserService, AncmtService, GameService, $q) {
     var self= this;
     self.ancmts = [];
     var tblFavoris;
 
-    self.ancmts = eventPromise;
+    self.ancmts = ancmtsPromise;
     
     var updateFav = function(){
         if(ServerService.getFavorisAnnoncement())

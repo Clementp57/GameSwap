@@ -26,12 +26,11 @@
 @import "views/home";
 @import "views/map";
 @import "ion-google-places";
- .has-custom-header {
-  top: 80px;
+.has-custom-header {
+  top: 70px;
 }
 .bar.bar-positive {
-  background-color: #f44336;
-  border-color: #f44336;
+  background-color: $primary-color;
 }
 #login {
   background-image: url(../images/bg-home.png);
@@ -114,4 +113,8 @@
 .title-noData {
   text-align: center;
   padding: 10% 0;
+}
+
+.button-positive {
+  background-color:$accent-color;
 }

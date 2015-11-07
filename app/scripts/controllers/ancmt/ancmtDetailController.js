@@ -7,21 +7,16 @@
  * # AncmtDetailController
  */
 angular.module('GameSwap')
-  .controller('AncmtDetailController', function(UserService, AncmtService, $stateParams) {
+  .controller('AncmtDetailController', function(UserService, AncmtService, $stateParams, ancmtPromise) {
     var self = this;
-    self.ancmt = {};
+    self.ancmt = ancmtPromise;
 
-    AncmtService.get({
-      'id': $stateParams.id
-    }).$promise.then(function(data) {
-      self.ancmt = data;
-      UserService.get({
+    UserService.get({
         id: self.ancmt.creatorId
       }).$promise.then(function(user) {
         self.author = user;
       });
-    });
-
+      
     self.sendMail = function() {
       if (window.plugins && window.plugins.emailComposer) {
         window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {

@@ -7,11 +7,17 @@
  * # EventController
  */
 angular.module('GameSwap')
-    .controller('EventController', function(eventPromise, EventService, ServerService, $ionicPopup, $scope) {
+    .controller('EventController', function(eventsPromise, EventService, ServerService, $ionicPopup, $scope) {
         var self = this;
     
-        self.events = eventPromise;
-        self.eventsCoords = null;
+        self.events = eventsPromise;
+
+        self.doRefresh = function() {
+            EventService.query().$promise.then(function(events) {
+                self.events = events;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        }
 
         self.showEventsMap = function(){
             // An elaborate, custom popup

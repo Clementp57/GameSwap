@@ -7,7 +7,7 @@
  * # CreateEventController
  */
 angular.module('GameSwap')
-  .controller('CreateEventController', function(GeolocationService, EventService, ServerService, DatepickerService, $filter, $rootScope) {
+  .controller('CreateEventController', function($state, GeolocationService, EventService, ServerService, DatepickerService, $filter, $rootScope) {
     var self = this;
     self.event = { coords : {}, details: '', userPic: $rootScope.userPic};
     self.event.creatorId = ServerService.getLoggedUser()._id;
@@ -28,7 +28,7 @@ angular.module('GameSwap')
         navigator.camera.getPicture(function(data){
             console.log('got photo !');
             self.event.poster = "data:image/jpeg;base64," + data;
-            document.getElementById("eventPoster").src = self.event.poster;
+            document.getElementById("eventPoster").style.backgroundImage= "url("+self.event.poster + ")";
         }, function(fail) {
             console.log(fail);
         }, config);
@@ -51,7 +51,8 @@ angular.module('GameSwap')
             self.event.creationDate = new Date();
             console.log(self.event);
             EventService.save(self.event).$promise.then(function() {
-              console.log('TODO: redirect');
+                self.event = {};
+              $state.go('app.events');
             }, function(error) {
               console.log('damned... there was an error :' + error);
             });

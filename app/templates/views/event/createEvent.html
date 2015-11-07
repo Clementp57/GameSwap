@@ -5,16 +5,14 @@
     <ion-content>
 
 
-    <div class="card">
-        <form name="eventForm" ng-submit="ctrl.validateEvent(eventForm.$valid)" novalidate>
+    <form name="eventForm" ng-submit="ctrl.validateEvent(eventForm.$valid)" novalidate>
+        <div class="card">
             <div class="list">
-                <div class="item item-divider">
-                <h2>Créer un évenement</h2>
-                    <button class="button button-small button-energized" ng-click="ctrl.getPictureFromGallery()">
-                      Ajouter une image
-                    </button>
+                <div class="item" id="eventPoster" style="background-image: url('images/bg-home.png'); background-size:cover; height:200px;">
+                     <button class="button button-assertive button-outline icon-left ion-ios-camera-outline" ng-click="ctrl.getPictureFromGallery()">
+                         Ajouter une image
+                     </button>
                 </div>
-                <img class="full-image" id="eventPoster" alt="">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Nom de l'évenement</span>
                     <input type="text" placeholder="Nom" name="title" ng-model="ctrl.event.title" required>
@@ -57,13 +55,12 @@
                     <span class="input-label">Nombre de participants</span>
                     <input type="number" placeholder="Nombre de participants" ng-model="ctrl.event.participantNb" name="participantNb" required>
                 </label>
-
-                <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
-                    Valider
-                </button>
             </div>
-        </form>
-    </div>
+        </div>      
+        <button class="button button-balanced button-block" type="submit" ng-disabled="eventForm.$invalid">
+            {{ eventForm.$valid ? 'Valider' : 'Formulaire incomplet'}}
+        </button>
+    </form>
 
 </ion-content>
 
