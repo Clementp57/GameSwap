@@ -11,7 +11,7 @@ angular.module('GameSwap')
     var self= this;
     self.ancmts = [];
     var tblFavoris;
-    console.log(eventPromise);
+
     self.ancmts = eventPromise;
     
     var updateFav = function(){
