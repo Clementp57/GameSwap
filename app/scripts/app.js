@@ -174,7 +174,7 @@ angular.module('GameSwap', ['ionic',
       },
       authenticate: true
     })
-  .state('app.favAncmts', {
+    .state('app.favAncmts', {
       url: '/favorisAnnoncement',
       views: {
         'viewContent': {
@@ -182,9 +182,24 @@ angular.module('GameSwap', ['ionic',
           controller: 'FavorisAncmtController as ctrl'
         }
       },
+      resolve: {
+        eventPromise: function(ServerService, AncmtService) {
+          var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
+          var dataFav = [];
+          for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
+            AncmtService.get({
+              'id': tblFavAncmt[i]
+            }).$promise.then(function(data) {
+              console.log(data);
+              dataFav.push(data);
+            });
+          }
+          return dataFav;
+        }
+      },
       authenticate: true
     })
-  .state('app.favAncmt', {
+    .state('app.favAncmt', {
       url: "/annoncement/:id",
       views: {
         'viewContent': {

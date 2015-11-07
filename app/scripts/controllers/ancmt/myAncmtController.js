@@ -9,12 +9,13 @@
 angular.module('GameSwap')
   .controller('MyAncmtController', function(ServerService, AncmtService, $q, $ionicPopup) {
     var self = this;
-
+    self.noData = false;
+    
     this.getAllMyAncmt = function() {
       self.myAncmts = [];
       self.noData = false;
       if (ServerService.getMyAnnoncement()) {
-        self.noData = true;
+        self.noData = false;
         var tblMyAncmt = ServerService.getMyAnnoncement().split(',');
         for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
           AncmtService.get({
