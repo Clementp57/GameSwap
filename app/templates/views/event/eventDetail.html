@@ -16,20 +16,20 @@
 	  </div>
 
 	  <div class="item item-body">
-	  	<label>Description:</label>
+	  	<label><strong>Description:</strong></label>
 		<p>
 			{{ctrl.event.description}}
 		</p>
 
-		<label>Détails:</label>
+		<label><strong>Détails:</strong></label>
 		<p>
 			{{ctrl.event.details}}
 		</p>
 
-		<label>Adresse:</label>
+		<label><strong>Adresse:</strong></label>
 		<p>{{ctrl.event.locationName}}</p>
 
-		<label>Organisateur:</label>
+		<label><strong>Organisateur:</strong></label>
 		<p>{{ctrl.author.name.first}} {{ ctrl.author.name.last}}</p>
 
 		<button class="button icon-left ion-paper-airplane button-positive" ng-click="ctrl.sendMail()">Envoyer un mail</button>

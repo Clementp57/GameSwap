@@ -6,5 +6,6 @@
     "bower_components/moment/moment.js",
     "bower_components/moment/locale/fr.js",
     "bower_components/angular-moment/angular-moment.min.js",
-    "bower_components/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"
+    "bower_components/ionic-datepicker/dist/ionic-datepicker.bundle.min.js",
+    "bower_components/ionic-filter-bar/dist/ionic.filter.bar.min.js"
 ]

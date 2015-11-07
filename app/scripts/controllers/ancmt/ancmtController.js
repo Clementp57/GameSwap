@@ -7,13 +7,29 @@
  * # AncmtController
  */
 angular.module('GameSwap')
-  .controller('AncmtController', function($scope, ancmtsPromise, ServerService, UserService, AncmtService, GameService, $q) {
+  .controller('AncmtController', function($state, $scope, ancmtsPromise, ServerService, UserService, AncmtService, GameService, $q, $ionicFilterBar) {
     var self= this;
     self.ancmts = [];
     var tblFavoris;
+    var filterBarInstance;
 
+    self.filteredAncmts = ancmtsPromise;
     self.ancmts = ancmtsPromise;
-    
+
+    self.showFilterBar = function () {
+      filterBarInstance = $ionicFilterBar.show({
+        items: self.ancmts,
+        update: function (filteredItems) {
+          self.filteredAncmts = filteredItems;
+        },
+        filterProperties: ['title', 'game'],
+      });
+    };
+
+    self.createAncmt = function() {
+        $state.go('app.createAncmt');
+    }
+
     var updateFav = function(){
         if(ServerService.getFavorisAnnoncement())
         return ServerService.getFavorisAnnoncement().split(',');
