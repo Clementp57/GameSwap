@@ -80,9 +80,8 @@ angular.module('GameSwap')
       });
 
       function onSuccess(imageData) {
-        var image = document.getElementById('imgGame');
-        image.src = "data:image/jpeg;base64," + imageData;
-        self.ancmt.img =  image.src;
+        self.ancmt.img = "data:image/jpeg;base64," + imageData;
+        document.getElementById("imgGame").style.backgroundImage= "url("+self.ancmt.img + ")";
       }
 
       function onFail(message) {

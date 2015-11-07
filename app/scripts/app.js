@@ -88,7 +88,7 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        eventPromise: function(AncmtService) {
+        ancmtsPromise: function(AncmtService) {
           return AncmtService.query().$promise;
         }
       },
@@ -103,7 +103,7 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        eventPromise: function(EventService, $stateParams) {
+        ancmtPromise: function(EventService, $stateParams) {
           return EventService.get({
             'id': $stateParams.id
           }).$promise;
@@ -120,7 +120,7 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        eventPromise: function(EventService) {
+        eventsPromise: function(EventService) {
           return EventService.query().$promise;
         }
       },

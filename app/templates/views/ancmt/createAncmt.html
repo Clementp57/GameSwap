@@ -4,9 +4,14 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="card">
-      <form name="annoncementForm" ng-submit="ctrl.validateAncmt(annoncementForm.$valid)" novalidate>
+    <form name="annoncementForm" ng-submit="ctrl.validateAncmt(annoncementForm.$valid)" novalidate>
+      <div class="card">
         <div class="list">
+          <div class="item" id="imgGame" style="background-image: url('images/bg-home.png'); background-size:cover; height:400px;">
+               <button class="button button-assertive button-outline icon-left ion-ios-camera-outline" ng-click="ctrl.takePicture()">
+                   Prendre une photo  
+               </button>
+          </div>
           <label class="item item-input item-stacked-label">
             <span class="input-label">Titre de l'annonce</span>
             <input type="text" name="title" placeholder="Titre" ng-model="ctrl.ancmt.title" required>
@@ -28,16 +33,13 @@
             <span class="input-label">Description</span>
             <textarea placeholder="Description" ng-model="ctrl.ancmt.description" required></textarea>
           </label>
-          <button type='button' class="button button-full button-assertive" ng-click="ctrl.takePicture();">
-            Prendre une photo de mon jeu
-          </button>
-          <img id="imgGame" width="96%"/>
-          <button class="button button-balanced button-full margin-vertical" type="submit" ng-disabled="annoncementForm.$invalid">
-            Valider
-          </button>
         </div>
-      </form>
-    </div>
+      </div>
+      <button class="button button-positive button-full margin-vertical" type="submit" ng-disabled="annoncementForm.$invalid">
+            {{ annoncementForm.$valid ? 'Valider' : 'Formulaire incomplet'}}
+      </button>
+
+    </form>
   </ion-content>
 
 </ion-view>

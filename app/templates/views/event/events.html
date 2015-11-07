@@ -3,7 +3,7 @@
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button ng-disabled="!ctrl.eventsCoords" class="button button-icon icon ion-map" side="right" ng-click="ctrl.showEventsMap();"></button>
+    <button class="button button-icon icon ion-map" side="right" ng-click="ctrl.showEventsMap();"></button>
   </ion-nav-buttons> 
 
   <ion-content>
@@ -14,13 +14,13 @@
       <ion-list>
         <div class="list card" ng-repeat="event in ctrl.events"> 
           <div class="item item-avatar">
-            <img src="{{event.userPic}}">
+            <img ng-src="{{event.userPic}}">
             <h2>{{event.title}}</h2>
             <p>{{ event.date | amDateFormat:'DD.MM.YYYY' }} (<span am-time-ago="event.date"></span>)</p>
           </div>
 
           <div class="item item-body">
-            <img class="full-image" src="{{event.poster}}">
+            <img class="full-image" ng-src="{{event.poster}}">
             <strong>{{event.game}} / {{event.plateform}}</strong>
             <p>
               {{event.description}}
