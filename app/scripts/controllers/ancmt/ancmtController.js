@@ -23,7 +23,10 @@ angular.module('GameSwap')
         tblFavoris = updateFav();
         if(tblFavoris){
             for(var i = 0, l = tblFavoris.length; i < l; ++i){
-                if(tblFavoris[i] == id) return;
+                if(tblFavoris[i] == id){ 
+                    ServerService.removeFromFavoris(id);
+                    return;
+                }
             }  
         }
         ServerService.registerFavorisAnnoncement(id);
