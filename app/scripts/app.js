@@ -186,7 +186,7 @@ angular.module('GameSwap', ['ionic',
       resolve: {
         favAncmtPromise: function(ServerService, AncmtService) {
           if (ServerService.getFavorisAnnoncement()) {
-            var tblFavAncmt = ServerService.FavorisAnnoncement().split(',');
+            var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
             var dataFav = [];
             for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
               AncmtService.get({
