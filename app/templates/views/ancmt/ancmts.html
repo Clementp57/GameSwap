@@ -12,7 +12,7 @@
     </ion-refresher>
     <ion-list>
 
-      <div class="card {{ancmt.plateform | nospace | lowercase}}" ng-repeat="ancmt in ctrl.filteredAncmts">
+      <div class="card {{ancmt.plateform | nospace | lowercase}}" ng-show="ctrl.checkMyAncmt('{{ancmt.id}}')" ng-repeat="ancmt in ctrl.filteredAncmts">
         <div class="item item-thumbnail-left">
           <img ng-src="{{ancmt.img}}">
           <h2>{{ancmt.title}}</h2>
