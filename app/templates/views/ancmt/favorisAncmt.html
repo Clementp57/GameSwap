@@ -5,10 +5,11 @@
   </ion-nav-buttons>
 
   <ion-content>
-    
+     <ion-refresher pulling-text="Pull to refresh..." on-refresh="ctrl.doRefresh()">
+    </ion-refresher>
     <ion-list>
 
-      <div class="card {{favAncmt.plateform | nospace | lowercase}}" ng-repeat="favAncmt in ctrl.favAncmts">
+      <div class="card {{favAncmt.plateform | nospace | lowercase}}" ng-show="'{{favAncmt.id}}'" ng-repeat="favAncmt in ctrl.favAncmts">
         <div class="item item-thumbnail-left">
           <img src="{{favAncmt.img}}">
           <div class="item item-divider">
