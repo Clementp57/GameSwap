@@ -7,11 +7,11 @@
  * # FavAncmtController
  */
 angular.module('GameSwap')
-  .controller('FavorisAncmtController', function(eventPromise, ServerService, AncmtService, $q) {
+  .controller('FavorisAncmtController', function(favAncmtPromise, ServerService, AncmtService, $q) {
     var self = this;
     self.favAncmts = [];
     
-    self.favAncmts = eventPromise;
+    self.favAncmts = favAncmtPromise;
 
     self.noData = false;
 
