@@ -103,8 +103,8 @@ angular.module('GameSwap', ['ionic',
         }
       },
       resolve: {
-        ancmtPromise: function(EventService, $stateParams) {
-          return EventService.get({
+        ancmtPromise: function(AncmtService, $stateParams) {
+          return AncmtService.get({
             'id': $stateParams.id
           }).$promise;
         }
