@@ -184,17 +184,20 @@ angular.module('GameSwap', ['ionic',
       },
       resolve: {
         eventPromise: function(ServerService, AncmtService) {
-          var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
-          var dataFav = [];
-          for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
-            AncmtService.get({
-              'id': tblFavAncmt[i]
-            }).$promise.then(function(data) {
-              console.log(data);
-              dataFav.push(data);
-            });
+          if (ServerService.getFavorisAnnoncement()) {
+            var tblFavAncmt = ServerService.getFavorisAnnoncement().split(',');
+            var dataFav = [];
+            for (var i = 0, l = tblFavAncmt.length; i < l; ++i) {
+              AncmtService.get({
+                'id': tblFavAncmt[i]
+              }).$promise.then(function(data) {
+                console.log(data);
+                dataFav.push(data);
+              });
+            }
+            return dataFav;
           }
-          return dataFav;
+          return;
         }
       },
       authenticate: true
