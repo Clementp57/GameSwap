@@ -7,7 +7,7 @@
  * # myAncmtController
  */
 angular.module('GameSwap')
-  .controller('MyAncmtController', function(ServerService, AncmtService, $q, $ionicPopup) {
+  .controller('MyAncmtController', function(ServerService, AncmtService, $q, $ionicPopup, $scope) {
     var self = this;
     self.noData = false;
     var userId = ServerService.getLoggedUser()._id;
@@ -21,6 +21,7 @@ angular.module('GameSwap')
         } else {
           self.myAncmts = data;  
         }
+        $scope.$broadcast('scroll.refreshComplete');  
       });
     };
 
