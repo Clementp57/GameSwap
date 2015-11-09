@@ -7,20 +7,20 @@
  * # myAncmtController
  */
 angular.module('GameSwap')
-  .controller('MyAncmtController', function(ancmtsPromise, ServerService, AncmtService, $q, $ionicPopup, $scope) {
+  .controller('MyEventsController', function(eventsPromise, ServerService, EventService, $q, $ionicPopup, $scope) {
     var self = this;
     self.noData = false;
     var userId = ServerService.getLoggedUser()._id;
-    self.myAncmts = ancmtsPromise;
+    self.myEvents = eventsPromise;
     
-    this.getAllMyAncmt = function() {
-      self.myAncmts = [];
+    this.getAllMyEvent = function() {
+      self.myEvents = [];
       self.noData = false;
-      AncmtService.getUserAnnoncements({id: userId}).$promise.then(function(data) {
+      EventService.getUserEvents({id: userId}).$promise.then(function(data) {
         if(data.length < 1) {
           self.noData = true;
         } else {
-          self.myAncmts = data;  
+          self.myEvents = data;  
         }
         $scope.$broadcast('scroll.refreshComplete');  
       });
@@ -28,26 +28,25 @@ angular.module('GameSwap')
 
     this.confirmDelete = function(id) {
       var confirmPopup = $ionicPopup.confirm({
-        title: "Suppression de l'offre",
-        template: 'Êtes vous sur de vouloir supprimer cette offre ?'
+        title: "Suppression de l'évenement",
+        template: 'Êtes vous sur de vouloir supprimer cet évenement ?'
       });
       confirmPopup.then(function(res) {
         if (res) {
-          self.deleteAnnoncement(id);
+          self.deleteEvent(id);
         } else {
           return;
         }
       });
     };
 
-    this.deleteAnnoncement = function(id) {
-      AncmtService.delete({
+    this.deleteEvent = function(id) {
+      EventService.delete({
         'id': id
       }).$promise.then(function(data) {
         console.log("Annoncment remove !");
       });
-      ServerService.removeFromMyAnnoncement(id);
-      this.getAllMyAncmt();
+      this.getAllMyEvent();
     };
 
   });

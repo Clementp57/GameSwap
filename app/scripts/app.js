@@ -176,6 +176,26 @@ angular.module('GameSwap', ['ionic',
           controller: 'MyAncmtController as ctrl'
         }
       },
+      resolve: {
+        ancmtsPromise : function(AncmtService, $stateParams, ServerService) {
+          return AncmtService.getUserAnnoncements({id: ServerService.getLoggedUser()._id}).$promise;
+        }
+      },
+      authenticate: true
+    })
+    .state('app.myEvents', {
+      url: '/myEvents',
+      views: {
+        'viewContent': {
+          templateUrl: 'templates/views/event/myEvents.html',
+          controller: 'MyEventsController as ctrl'
+        }
+      },
+      resolve: {
+        eventsPromise: function(EventService, $stateParams, ServerService) {
+          return EventService.getUserEvents({id: ServerService.getLoggedUser()._id}).$promise;
+        }
+      },
       authenticate: true
     })
     .state('app.favAncmts', {

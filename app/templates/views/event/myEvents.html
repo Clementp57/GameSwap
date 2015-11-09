@@ -1,0 +1,38 @@
+<ion-view view-title="Mes Evenements" class="ancmt" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+  <ion-refresher pulling-text="Tirer pour rafraîchir" on-refresh="ctrl.getAllMyEvent()">
+    </ion-refresher>
+    <ion-list>
+
+    <ion-list show-delete="false" can-swipe="true">
+     <ion-item item="item" ui-sref="app.event({id: '{{event._id}}'})" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="event in ctrl.myEvents" ng-class="{ 
+          playstation4: event.platform=='Playstation 4',
+          playstation3: event.platform=='Playstation 3',
+          xboxone: event.platform=='Xbox One',
+          xbox360: event.platform=='Xbox 360',
+          pc: event.platform=='PC',
+          wii: event.platform=='Wii',
+          wiiu: event.platform=='Wii U',
+          autre: event.platform=='Autre'
+        }">
+        <img ng-src="" style="max-width:80px;max-height:100%; height:80px; overflow:hidden; background-image: url('{{event.poster}}'); background-size:cover; background-position:center center;" />
+        <h2>{{event.title}}</h2>
+        <p>{{event.description}}</p>
+        <p><strong>Etat: </strong> <span style="display: inline-block;width:10px;height:10px;border-radius:10px;background-color:{{event.state == 'validated' ? 'green' : 'red'}}"></span> {{event.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="ctrl.confirmDelete(event._id)"></ion-option-button>
+      </ion-item>
+  
+
+    </ion-list>
+    <div class="title-noData item item-divider" ng-show="ctrl.noData">
+        <p>Vous n'organisez pas d'évenements.</p>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+

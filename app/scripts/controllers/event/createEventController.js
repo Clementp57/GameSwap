@@ -56,7 +56,7 @@ angular.module('GameSwap')
             EventService.save(self.event).$promise.then(function() {
                 self.event = {};
                 $ionicLoading.hide();
-              $state.go('app.events');
+              $state.go('app.myEvents', {}, {reload: true});
             }, function(error) {
               console.log('damned... there was an error :' + error);
             });

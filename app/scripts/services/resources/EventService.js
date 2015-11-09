@@ -36,7 +36,15 @@ angular.module('GameSwap')
 					id: 'id'
 				},
 				url: ApiService.getEndpoint() + '/events/comments/:id'
-			}
+			},
+			getUserEvents: {
+		        method: 'GET',
+		        params: {
+		          id: 'id'
+		        },
+		        url: ApiService.getEndpoint() + '/events/forUser/:id',
+		        isArray: true
+		      }
 		});
 
 		Event.prototype.addComment = function(comment) {

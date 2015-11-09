@@ -35,7 +35,7 @@ angular.module('GameSwap')
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
           $ionicLoading.hide();
-          $state.go('app.myAncmts');
+          $state.go('app.myAncmts', {}, {reload: true});
         }, function(error) {
           console.log('damned... there was an error :', error);
         });
