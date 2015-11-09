@@ -13,7 +13,7 @@
     <ion-list>
 
       <a class="item item-thumbnail-left ancmt-item item-button-right {{ancmt.plateform | nospace | lowercase}} {{ ancmt.creatorId != ctrl.user._id ? '' : 'bg-dark'}}" ui-sref="app.ancmt({id: '{{ancmt.id}}'})" ng-repeat="ancmt in ctrl.filteredAncmts">
-        <img ng-src="{{ancmt.img}}" />
+        <img ng-src="" style="max-width:80px;max-height:100%; height:80px; overflow:hidden; background-image: url('{{ancmt.img}}'); background-size:cover; background-position:center center;" />
         <h2>{{ancmt.title}}</h2>
         <p>{{ ancmt.description }}</p>
          <div class="buttons">
