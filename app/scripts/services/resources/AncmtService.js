@@ -11,16 +11,23 @@ angular.module('GameSwap')
   .factory('AncmtService', function($resource, ApiService) {
     var usersEndpoint = ApiService.getEndpoint()  + '/annoncements/:id';
 
-    return $resource(usersEndpoint, {
+    return $resource(usersEndpoint, {}, {
       get: {
         method: 'GET',
         params: {id : 'id'},
         isArray: true
       },
-     delete: {
+      delete: {
         method: 'DELETE',
         params: {id : 'id'},
         isArray: true
+      },
+      getUserAnnoncements: {
+        method: 'GET',
+        params: {
+          id: 'id'
+        },
+        url: ApiService.getEndpoint() + '/annoncements/forUser/:id'
       }
     });
   });

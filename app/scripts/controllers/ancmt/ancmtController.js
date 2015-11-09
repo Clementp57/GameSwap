@@ -12,10 +12,10 @@ angular.module('GameSwap')
     self.ancmts = [];
     var tblFavoris;
     var filterBarInstance;
-    var tblMyAncmt = [];
+    self.tblMyAncmt = [];
 
     if (ServerService.getMyAnnoncement()) {
-      tblMyAncmt = ServerService.getMyAnnoncement().split(',');
+      self.tblMyAncmt = ServerService.getMyAnnoncement().split(',');
     }
 
     self.filteredAncmts = ancmtsPromise;
@@ -33,14 +33,7 @@ angular.module('GameSwap')
 
     self.createAncmt = function() {
       $state.go('app.createAncmt');
-    }
-
-    this.checkMyAncmt = function(id) {
-      for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
-        if (tblMyAncmt[i] == id) return false;
-      }
-      return true;
-    }
+    };
 
     var updateFav = function() {
       if (ServerService.getFavorisAnnoncement())

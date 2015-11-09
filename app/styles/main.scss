@@ -70,13 +70,14 @@
   line-height: 3rem;
   font-size: 12px !important;
 }
+
+.ancmt-item {
+  border-left-width: 8px;
+}
+
 .ancmt,
 .ancmtFav,
-.myAncmt {
-  .card {
-    border-style: solid;
-    border-left-width: 5px;
-  }
+.myAncmt {                  
   .playstation3 {
     border-left-color: $ps3;
   }
@@ -102,12 +103,7 @@
     border-left-color: $autre;
   }
 }
-.item h2 {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 14px;
-  height: 16px;
-}
+
 .item-thumbnail-left > img:first-child{
     height: auto !important;
 }
@@ -124,4 +120,10 @@
 
 .button-positive {
   background-color:$accent-color;
+}
+
+.ancmtDate {
+  position:absolute;
+  right:15px;
+  bottom:15px;
 }

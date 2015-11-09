@@ -10,23 +10,18 @@ angular.module('GameSwap')
   .controller('MyAncmtController', function(ServerService, AncmtService, $q, $ionicPopup) {
     var self = this;
     self.noData = false;
+
     
     this.getAllMyAncmt = function() {
       self.myAncmts = [];
       self.noData = false;
-      if (ServerService.getMyAnnoncement()) {
-        self.noData = false;
-        var tblMyAncmt = ServerService.getMyAnnoncement().split(',');
-        for (var i = 0, l = tblMyAncmt.length; i < l; ++i) {
-          AncmtService.get({
-            'id': tblMyAncmt[i]
-          }).$promise.then(function(data) {
-            self.myAncmts.push(data);
-          });
+      AncmtService.getUserAnnoncements(ServerService.getLoggedUser()._id).$promise.then(function(data) {
+        if(data == []) {
+          self.noData = true;
+        } else {
+          self.myAncmts = data;  
         }
-      } else {
-        self.noData = true;
-      }
+      });
     };
 
     this.getAllMyAncmt();

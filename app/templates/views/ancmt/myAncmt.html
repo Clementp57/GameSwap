@@ -5,29 +5,17 @@
 
   <ion-content>
 
-    <ion-list>
-
-      <div class="card {{myAncmt.plateform | nospace | lowercase}}" ng-show="'{{myAncmt.id}}'" ng-repeat="myAncmt in ctrl.myAncmts">
-        <div class="item item-thumbnail-left">
-          <img src="{{myAncmt.img}}">
-          <div class="item item-divider">
-            <h2>{{myAncmt.title}}</h2>
-          </div>
-          <div class="item item-text-wrap">
-            {{ myAncmt.description }}
-          </div>
-        </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-          <a class="tab-item">
-            <i class="icon ion-ios-clock-outline"></i>
-            <span am-time-ago="myAncmt.date"></span>
-          </a>
-          <a class="tab-item" href="#" ng-click="ctrl.confirmDelete('{{myAncmt.id}}')">
-            <i class="icon ion-trash-a"></i>
-            Supprimer
-          </a>
-        </div>
-      </div>
+    <ion-list can-swipe="true">
+      <ion-item class="item item-thumbnail-left ancmt-item {{ancmt.plateform | nospace | lowercase}}" ui-sref="app.ancmt({id: '{{ancmt.id}}'})" ng-repeat="ancmt in ctrl.myAncmts" ngShow="ancmt.id">
+        <img ng-src="{{ancmt.img}}" />
+        <h2>{{ancmt.title}}</h2>
+        <p>{{ ancmt.description }}</p>
+        <!-- <span class="ancmtDate" am-time-ago="ancmt.date"></span>  -->
+        <ion-option-button class="button-assertive"
+                       ng-click="ctrl.confirmDelete(ancmt._id)">
+        Supprimer
+    </ion-option-button>
+      </ion-item>
 
     </ion-list>
     <div class="title-noData item item-divider" ng-show="ctrl.noData">
