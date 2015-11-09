@@ -20,13 +20,14 @@ angular.module('GameSwap')
 		self.showMapPopup = function() {
 			// An elaborate, custom popup
 			var myPopup = $ionicPopup.show({
-				template: '<map autolocate="false" marker="'+ self.event.coords+ '"></map>',
+				template: '<map autolocate="false" marker-content="'+ self.event.title+'" marker-lat="'+self.event.coords.lat+'" marker-lon="'+self.event.coords.lon+'"></map>',
 				title: self.event.title,
 				cssClass: 'mapPopup',
 				// subTitle: 'Please use normal things',
 				scope: $scope,
 				buttons: [{
-					text: 'Fermer'
+					text: 'Fermer',
+                    type: 'button-assertive'
 				}]
 			});
 			myPopup.then(function(res) {

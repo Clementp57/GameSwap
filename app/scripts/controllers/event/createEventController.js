@@ -7,7 +7,7 @@
  * # CreateEventController
  */
 angular.module('GameSwap')
-  .controller('CreateEventController', function($state, GeolocationService, EventService, ServerService, DatepickerService, $filter, $rootScope) {
+  .controller('CreateEventController', function($ionicLoading, $state, GeolocationService, EventService, ServerService, DatepickerService, $filter, $rootScope) {
     var self = this;
     self.event = { coords : {}, details: '', userPic: $rootScope.userPic};
     self.event.creatorId = ServerService.getLoggedUser()._id;
@@ -46,12 +46,16 @@ angular.module('GameSwap')
     };
 
     self.validateEvent = function(isValid) {
+        $ionicLoading.show({
+          template: '<ion-spinner icon="ripple"></ion-spinner>'
+        });
         if(isValid) {
             //register
             self.event.creationDate = new Date();
             console.log(self.event);
             EventService.save(self.event).$promise.then(function() {
                 self.event = {};
+                $ionicLoading.hide();
               $state.go('app.events');
             }, function(error) {
               console.log('damned... there was an error :' + error);

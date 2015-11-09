@@ -7,7 +7,7 @@
  * # CreateAncmtController
  */
 angular.module('GameSwap')
-  .controller('CreateAncmtController', function(UserService, AncmtService, GameService, ServerService, $state) {
+  .controller('CreateAncmtController', function(UserService, AncmtService, GameService, ServerService, $state, $ionicLoading){
     var self = this;
 
     self.plateform = ["Playstation 3", "Playstation 4", "Xbox 360", "Xbox One", "PC", "Wii", "Wii U", "Autre"];
@@ -26,11 +26,15 @@ angular.module('GameSwap')
 
     self.validateAncmt = function(isValid) {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
+      $ionicLoading.show({
+        template: '<ion-spinner icon="ripple"></ion-spinner>'
+      });
       if (isValid) {
           self.ancmt.date = new Date();
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
+          $ionicLoading.hide();
           $state.go('app.myAncmts');
         }, function(error) {
           console.log('damned... there was an error :', error);

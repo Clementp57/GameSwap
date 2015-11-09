@@ -44,7 +44,8 @@ angular.module('GameSwap')
                 // subTitle: 'Please use normal things',
                 scope: $scope,
                 buttons: [{
-                    text: 'Fermer'
+                    text: 'Fermer',
+                    type: 'button-assertive'
                 }]
             });
             myPopup.then(function(res) {
