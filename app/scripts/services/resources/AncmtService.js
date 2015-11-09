@@ -15,7 +15,7 @@ angular.module('GameSwap')
       get: {
         method: 'GET',
         params: {id : 'id'},
-        isArray: true
+        isArray: false
       },
       delete: {
         method: 'DELETE',
@@ -27,7 +27,8 @@ angular.module('GameSwap')
         params: {
           id: 'id'
         },
-        url: ApiService.getEndpoint() + '/annoncements/forUser/:id'
+        url: ApiService.getEndpoint() + '/annoncements/forUser/:id',
+        isArray: true
       }
     });
   });

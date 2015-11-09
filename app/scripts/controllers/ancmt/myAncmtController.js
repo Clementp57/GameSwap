@@ -10,12 +10,14 @@ angular.module('GameSwap')
   .controller('MyAncmtController', function(ServerService, AncmtService, $q, $ionicPopup) {
     var self = this;
     self.noData = false;
-
+    var userId = ServerService.getLoggedUser()._id;
+    console.log(userId);
     
     this.getAllMyAncmt = function() {
       self.myAncmts = [];
       self.noData = false;
-      AncmtService.getUserAnnoncements(ServerService.getLoggedUser()._id).$promise.then(function(data) {
+      AncmtService.getUserAnnoncements({id: userId}).$promise.then(function(data) {
+        console.log(data);
         if(data == []) {
           self.noData = true;
         } else {

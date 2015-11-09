@@ -10,7 +10,7 @@
         <img ng-src="{{ancmt.img}}" />
         <h2>{{ancmt.title}}</h2>
         <p>{{ ancmt.description }}</p>
-        <!-- <span class="ancmtDate" am-time-ago="ancmt.date"></span>  -->
+        <p><strong>Etat: </strong> {{ancmt.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
         <ion-option-button class="button-assertive"
                        ng-click="ctrl.confirmDelete(ancmt._id)">
         Supprimer
@@ -21,7 +21,6 @@
     <div class="title-noData item item-divider" ng-show="ctrl.noData">
         <p>Vous n'avez pas d'annonce.</p>
     </div>
-    
   </ion-content>
 
 </ion-view>
