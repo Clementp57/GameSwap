@@ -13,6 +13,7 @@ angular.module('GameSwap')
     var tblFavoris;
     var filterBarInstance;
     self.tblMyAncmt = [];
+    self.user = ServerService.getLoggedUser();
 
     if (ServerService.getMyAnnoncement()) {
       self.tblMyAncmt = ServerService.getMyAnnoncement().split(',');
@@ -40,7 +41,7 @@ angular.module('GameSwap')
         return ServerService.getFavorisAnnoncement().split(',');
     };
 
-    this.setFavorisAnnoncement = function(id) {
+    this.setFavorisAnnoncement = function($event, id) {
       tblFavoris = updateFav();
       if (tblFavoris) {
         for (var i = 0, l = tblFavoris.length; i < l; ++i) {

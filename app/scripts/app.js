@@ -18,7 +18,10 @@ angular.module('GameSwap', ['ionic',
   'jett.ionic.filter.bar'
 ])
 
-.run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment, $ionicLoading) {
+.run(function($ionicPlatform, $rootScope, $state, ServerService, $stateParams, amMoment, $ionicLoading, $ionicFilterBarConfig) {
+
+  // Filter bar theme
+  $ionicFilterBarConfig.theme("light");
 
   // Moment
   amMoment.changeLocale('fr');

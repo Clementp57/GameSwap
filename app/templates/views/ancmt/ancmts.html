@@ -8,30 +8,20 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="ctrl.doRefresh()">
+    <ion-refresher pulling-text="Tirer pour rafraîchir" on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
 
-      <a class="item item-thumbnail-left ancmt-item {{ancmt.plateform | nospace | lowercase}}" ui-sref="app.ancmt({id: '{{ancmt.id}}'})" ng-repeat="ancmt in ctrl.filteredAncmts" ng-show="{{ctrl.tblMyAncmt.indexOf(ancmt._id) < 0}}">
+      <a class="item item-thumbnail-left ancmt-item item-button-right {{ancmt.plateform | nospace | lowercase}} {{ ancmt.creatorId != ctrl.user._id ? '' : 'bg-dark'}}" ui-sref="app.ancmt({id: '{{ancmt.id}}'})" ng-repeat="ancmt in ctrl.filteredAncmts">
         <img ng-src="{{ancmt.img}}" />
         <h2>{{ancmt.title}}</h2>
         <p>{{ ancmt.description }}</p>
+         <div class="buttons">
+              <button ng-show="{{ancmt.creatorId != ctrl.user._id }}" class="button button-light" stop-event ng-click="ctrl.setFavorisAnnoncement($event, '{{ancmt.id}}');">
+                  <i class="icon ion-star" ng-class="ctrl.checkIfFavoris('{{ancmt.id}}') ? 'energized': ''"></i>
+              </button>
+          </div>
         <span class="ancmtDate" am-time-ago="ancmt.date"></span>  
-
-        <!-- <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item">
-              <i class="icon ion-ios-clock-outline"></i>
-              
-            </a>
-            <a class="tab-item" ng-class="ctrl.checkIfFavoris('{{ancmt.id}}') ? 'energized': ''" href="#" ng-click="ctrl.setFavorisAnnoncement('{{ancmt.id}}')">
-              <i class="icon ion-star"></i>
-              Favoris
-            </a>
-            <a class="tab-item" >
-              <i class="icon ion-eye"></i>
-              Voir
-            </a>
-        </div> -->
       </a>
     </ion-list>
   </ion-content>

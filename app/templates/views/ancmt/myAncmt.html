@@ -9,12 +9,12 @@
     <ion-list>
 
     <ion-list show-delete="false" can-swipe="true">
-     <ion-item item="item" ng-href="#" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="ancmt in ctrl.myAncmts">
-     <!-- {{ancmt.plateform | nospace | lowercase}} -->
+     <ion-item item="item" ui-sref="app.ancmt({id: '{{ancmt._id}}'})" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="ancmt in ctrl.myAncmts">
+     <!-- {{ancmt.plateform | nospace | lowercase}}  -->
         <img ng-src="{{ancmt.img}}">
         <h2>{{ancmt.title}}</h2>
         <p>{{ancmt.description}}</p>
-        <p><strong>Etat: </strong> {{ancmt.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
+        <p><strong>Etat: </strong> <span style="display: inline-block;width:10px;height:10px;border-radius:10px;background-color:{{ancmt.state == 'validated' ? 'green' : 'red'}}"></span> {{ancmt.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
         <ion-option-button class="button-assertive icon ion-trash-a" ng-click="ctrl.confirmDelete(ancmt._id)"></ion-option-button>
       </ion-item>
   
