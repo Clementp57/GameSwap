@@ -4,25 +4,22 @@
   </ion-nav-buttons>
 
   <ion-content>
-
-    <ion-list can-swipe="true">
-      <ion-item class="item item-thumbnail-left ancmt-item {{ancmt.plateform | nospace | lowercase}}" ui-sref="app.ancmt({id: '{{ancmt.id}}'})" ng-repeat="ancmt in ctrl.myAncmts" ngShow="ancmt.id">
-        <img ng-src="{{ancmt.img}}" />
+    <ion-list show-delete="false" can-swipe="true">
+     <ion-item item="item" ng-href="#" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="ancmt in ctrl.myAncmts">
+     <!-- {{ancmt.plateform | nospace | lowercase}} -->
+        <img ng-src="{{ancmt.img}}">
         <h2>{{ancmt.title}}</h2>
-        <p>{{ ancmt.description }}</p>
+        <p>{{ancmt.description}}</p>
         <p><strong>Etat: </strong> {{ancmt.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
-        <ion-option-button class="button-assertive"
-                       ng-click="ctrl.confirmDelete(ancmt._id)">
-        Supprimer
-    </ion-option-button>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="ctrl.confirmDelete(ancmt._id)"></ion-option-button>
       </ion-item>
+  
 
     </ion-list>
     <div class="title-noData item item-divider" ng-show="ctrl.noData">
         <p>Vous n'avez pas d'annonce.</p>
     </div>
   </ion-content>
-
 </ion-view>
 
 

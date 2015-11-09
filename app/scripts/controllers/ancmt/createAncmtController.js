@@ -31,7 +31,7 @@ angular.module('GameSwap')
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
           ServerService.registerMyAnnoncement(data.id);
-          $state.go('app.ancmts');
+          $state.go('app.myAncmts');
         }, function(error) {
           console.log('damned... there was an error :', error);
         });

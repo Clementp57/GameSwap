@@ -11,14 +11,12 @@ angular.module('GameSwap')
     var self = this;
     self.noData = false;
     var userId = ServerService.getLoggedUser()._id;
-    console.log(userId);
     
     this.getAllMyAncmt = function() {
       self.myAncmts = [];
       self.noData = false;
       AncmtService.getUserAnnoncements({id: userId}).$promise.then(function(data) {
-        console.log(data);
-        if(data == []) {
+        if(data.length < 1) {
           self.noData = true;
         } else {
           self.myAncmts = data;  
