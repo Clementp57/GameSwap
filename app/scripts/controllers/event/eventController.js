@@ -16,6 +16,7 @@ angular.module('GameSwap')
         self.doRefresh = function() {
             EventService.query().$promise.then(function(events) {
                 self.events = events;
+                self.filteredEvents = events;
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }

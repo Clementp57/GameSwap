@@ -66,7 +66,8 @@ angular.module('GameSwap')
 
     this.doRefresh = function() {
       AncmtService.query().$promise.then(function(data) {
-        self.ancmts = data;
+          self.ancmts = data;
+          self.filteredAncmts = data;
       });
       $scope.$broadcast('scroll.refreshComplete');
     };
