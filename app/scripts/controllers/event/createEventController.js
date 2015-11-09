@@ -46,10 +46,10 @@ angular.module('GameSwap')
     };
 
     self.validateEvent = function(isValid) {
-        $ionicLoading.show({
-          template: '<ion-spinner icon="ripple"></ion-spinner>'
-        });
         if(isValid) {
+            $ionicLoading.show({
+              template: '<ion-spinner icon="ripple"></ion-spinner>'
+            });
             //register
             self.event.creationDate = new Date();
             console.log(self.event);

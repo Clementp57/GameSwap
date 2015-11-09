@@ -26,10 +26,10 @@ angular.module('GameSwap')
 
     self.validateAncmt = function(isValid) {
       // TODO Check errors/not valid fields @see : https://scotch.io/tutorials/angularjs-form-validation
-      $ionicLoading.show({
-        template: '<ion-spinner icon="ripple"></ion-spinner>'
-      });
       if (isValid) {
+          $ionicLoading.show({
+            template: '<ion-spinner icon="ripple"></ion-spinner>'
+          });
           self.ancmt.date = new Date();
           console.log(self.ancmt);
         AncmtService.save(self.ancmt).$promise.then(function(data) {
