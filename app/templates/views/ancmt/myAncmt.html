@@ -9,9 +9,17 @@
     <ion-list>
 
     <ion-list show-delete="false" can-swipe="true">
-     <ion-item item="item" ui-sref="app.ancmt({id: '{{ancmt._id}}'})" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="ancmt in ctrl.myAncmts">
-     <!-- {{ancmt.plateform | nospace | lowercase}}  -->
-        <img ng-src="{{ancmt.img}}">
+     <ion-item item="item" ui-sref="app.ancmt({id: '{{ancmt._id}}'})" ng-click="itemClick()" class="item-thumbnail-left ancmt-item" ng-repeat="ancmt in ctrl.myAncmts" ng-class="{ 
+          playstation4: ancmt.plateform=='Playstation 4',
+          playstation3: ancmt.plateform=='Playstation 3',
+          xboxone: ancmt.plateform=='Xbox One',
+          xbox360: ancmt.plateform=='Xbox 360',
+          pc: ancmt.plateform=='PC',
+          wii: ancmt.plateform=='Wii',
+          wiiu: ancmt.plateform=='Wii U',
+          autre: ancmt.plateform=='Autre'
+        }">
+        <img ng-src="" style="max-width:80px;max-height:100%; height:80px; overflow:hidden; background-image: url('{{ancmt.img}}'); background-size:cover; background-position:center center;" />
         <h2>{{ancmt.title}}</h2>
         <p>{{ancmt.description}}</p>
         <p><strong>Etat: </strong> <span style="display: inline-block;width:10px;height:10px;border-radius:10px;background-color:{{ancmt.state == 'validated' ? 'green' : 'red'}}"></span> {{ancmt.state == "validated" ? "En ligne" : "En attente de validation"}} </p>
