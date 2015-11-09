@@ -46,7 +46,7 @@ angular.module('GameSwap')
                         var marker = L.marker([lat, lon]).bindPopup(content).addTo(map);
                         if(!myPosition) {
                             marker.setIcon(L.icon({
-                                "iconUrl": "/images/icon.png",
+                                "iconUrl": "images/icon.png",
                                 "iconSize": [25, 25], // size of the icon
                                 "iconAnchor": [12, 12], // point of the icon which will correspond to marker's location
                                 "popupAnchor": [0, -12], // point from which the popup should open relative to the iconAnchor
